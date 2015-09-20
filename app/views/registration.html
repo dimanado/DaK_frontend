@@ -1,0 +1,15 @@
+<div class="container">
+    <form role="form" data-ng-submit="auth.signUp()">
+        <div class="text-center">
+            Sign up
+        </div>
+        <div class="input-group-lg input-full-width">
+            <input type="email" placeholder="Email" ng-model="auth.credentials.email" class="form-control">
+            <input type="password" placeholder="Password" ng-model="auth.credentials.password" class="form-control">
+            <input type="password" placeholder="Password confirmation" ng-model="auth.credentials.password_confirmation" class="form-control">
+        </div>
+        <div>
+            <button class="btn btn-default pull-right">Next</button>
+        </div>
+    </form>
+</div>

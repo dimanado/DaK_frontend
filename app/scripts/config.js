@@ -1,5 +1,5 @@
 angular
   .module("config", [])
   .constant("ENV", {
-    'apiEndpoint': 'api.dak.local/v1'
+    'apiEndpoint': 'http://api.dak.local:3000'
   });

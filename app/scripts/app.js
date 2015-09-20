@@ -3,34 +3,29 @@
 angular
   .module('Dak', [
     'config', 'Dak.controllers',
-    'ngAnimate', 'ngCookies', 'ngResource', 'ngRoute',
-    'ngSanitize', 'ngTouch', 'ng-token-auth'
+    'ngAnimate', 'ngCookies', 'ngResource',
+    'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router'
   ])
 
-  .run([],
-
-    function() {
-
-  })
 
 
-  .config(['$stateProvider', '$urlRouterProvider', 'ENV'], 
+  .config(['$stateProvider', '$urlRouterProvider', 'ENV', '$authProvider', 
 
-    function ($stateProvider, $urlRouterProvider, ENV) {
+    function ($stateProvider, $urlRouterProvider, ENV, $authProvider) {
       $stateProvider
         .state('registration', {
           url: '/sign_up',
-          templateUrl: 'registration.html',
-          controllerAs: 'authCtrl.js'
+          templateUrl: 'views/registration.html',
+          controller: 'AuthCtrl as auth'
         })
         .state('authentication', {
           url: '/sign_in',
-          templateUrl: 'authentication.html',
-          controllerAs: 'authCtrl.js'
+          templateUrl: 'views/authentication.html',
+          controller: 'AuthCtrl as auth'
         });
 
 
-      $urlRouterProvider.otherwise('/authentication');
+      // $urlRouterProvider.otherwise('/sign_in');
 
       // $authProvider.configure([{
       //   default: {
@@ -48,4 +43,4 @@ angular
         apiUrl: ENV.apiEndpoint,
         storage: 'localStorage'
       });
-  });
+  }]);
