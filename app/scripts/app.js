@@ -1,35 +1,51 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name dakNewApp
- * @description
- * # dakNewApp
- *
- * Main module of the application.
- */
 angular
-  .module('dakNewApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
+  .module('Dak', [
+    'config', 'Dak.controllers',
+    'ngAnimate', 'ngCookies', 'ngResource', 'ngRoute',
+    'ngSanitize', 'ngTouch', 'ng-token-auth'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .otherwise({
-        redirectTo: '/'
+
+  .run([],
+
+    function() {
+
+  })
+
+
+  .config(['$stateProvider', '$urlRouterProvider', 'ENV'], 
+
+    function ($stateProvider, $urlRouterProvider, ENV) {
+      $stateProvider
+        .state('registration', {
+          url: '/sign_up',
+          templateUrl: 'registration.html',
+          controllerAs: 'authCtrl.js'
+        })
+        .state('authentication', {
+          url: '/sign_in',
+          templateUrl: 'authentication.html',
+          controllerAs: 'authCtrl.js'
+        });
+
+
+      $urlRouterProvider.otherwise('/authentication');
+
+      // $authProvider.configure([{
+      //   default: {
+      //     apiUrl: ENV.apiEndpoint,
+      //     storage: 'localStorage'
+      //   }
+      // },
+      // {
+      //   service: {
+      //     apiUrl: ENV.serviceEndpoint
+      //   }
+      // }]);
+
+      $authProvider.configure({
+        apiUrl: ENV.apiEndpoint,
+        storage: 'localStorage'
       });
   });
