@@ -9,7 +9,7 @@ angular
 
 
 
-  .config(['$stateProvider', '$urlRouterProvider', 'ENV', '$authProvider', 
+  .config(['$stateProvider', '$urlRouterProvider', 'ENV', '$authProvider',
 
     function ($stateProvider, $urlRouterProvider, ENV, $authProvider) {
       $stateProvider
@@ -22,7 +22,12 @@ angular
           url: '/sign_in',
           templateUrl: 'views/authentication.html',
           controller: 'AuthCtrl as auth'
+        })
+        .state('main', {
+          url: '/',
+          templateUrl: 'views/main.html'
         });
+
 
 
       // $urlRouterProvider.otherwise('/sign_in');

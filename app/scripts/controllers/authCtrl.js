@@ -3,10 +3,10 @@ angular
   .controller('AuthCtrl', AuthCtrl);
 
   AuthCtrl.$inject = [
-    'ENV', '$scope', '$state', '$auth'
+    'ENV', '$scope', '$state', '$auth', '$location'
   ];
 
-  function AuthCtrl (ENV, $scope, $state, $auth) {
+  function AuthCtrl (ENV, $scope, $state, $auth, $location) {
     console.log('AuthCtrl load');
     this.credentials = {};
 
@@ -18,6 +18,7 @@ angular
       $auth.submitLogin(this.credentials)
         .then(function(data) {
           console.log('success');
+          $location.path('/#');
         })
         .catch(function(data) {
           console.log('failure');
@@ -29,6 +30,7 @@ angular
       $auth.submitRegistration(this.credentials)
         .then(function(data) {
           console.log('success');
+          $location.path('/#');
         })
         .catch(function(data) {
           console.log('failure');
