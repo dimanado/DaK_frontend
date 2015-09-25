@@ -5,22 +5,19 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
         <!-- build:css(.) styles/vendor.css -->
         <!-- bower:css -->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
         <!-- endbower -->
         <!-- endbuild -->
+
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
     </head>
     <body ng-app="Dak">
-
-    <div ng-include="'views/navbar.html'"></div>
-    <div class="container">
       <div ui-view></div>
-    </div>
 
         <!-- build:js(.) scripts/vendor.js -->
         <!-- bower:js -->
@@ -42,6 +39,7 @@
             <script src="scripts/app.js"></script>
             <script src="scripts/config.js"></script>
             <script src="scripts/controllers/authCtrl.js"></script>
+            <script src="scripts/controllers/coursesCtrl.js"></script>
             <!-- endbuild -->
     </body>
 </html>

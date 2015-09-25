@@ -18,10 +18,10 @@ angular
       $auth.submitLogin(this.credentials)
         .then(function(data) {
           console.log('success');
-          $location.path('/#');
+          $state.go('layout.courses');
         })
         .catch(function(data) {
-          console.log('failure');
+          console.log('failure ' + data);
         });
     };
 
@@ -30,10 +30,10 @@ angular
       $auth.submitRegistration(this.credentials)
         .then(function(data) {
           console.log('success');
-          $location.path('/#');
+          $state.go('authentication');
         })
         .catch(function(data) {
-          console.log('failure');
+          console.log('failure ' + data);
         });
     };
   };

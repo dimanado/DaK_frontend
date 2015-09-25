@@ -23,26 +23,19 @@ angular
           templateUrl: 'views/authentication.html',
           controller: 'AuthCtrl as auth'
         })
-        .state('main', {
-          url: '/',
-          templateUrl: 'views/main.html'
+        .state('layout', {
+          abstract: true,
+          templateUrl: 'views/layout.html'
+        })
+        .state('layout.courses', {
+          url: '/courses',
+          templateUrl: 'views/courses.html',
+          controller: 'CoursesCtrl as courses'
         });
 
 
 
-      // $urlRouterProvider.otherwise('/sign_in');
-
-      // $authProvider.configure([{
-      //   default: {
-      //     apiUrl: ENV.apiEndpoint,
-      //     storage: 'localStorage'
-      //   }
-      // },
-      // {
-      //   service: {
-      //     apiUrl: ENV.serviceEndpoint
-      //   }
-      // }]);
+      $urlRouterProvider.otherwise('/sign_in');
 
       $authProvider.configure({
         apiUrl: ENV.apiEndpoint,
