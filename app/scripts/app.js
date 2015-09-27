@@ -13,19 +13,20 @@ angular
 
     function ($stateProvider, $urlRouterProvider, ENV, $authProvider) {
       $stateProvider
-        .state('registration', {
+        .state('layout.registration', {
           url: '/sign_up',
           templateUrl: 'views/registration.html',
           controller: 'AuthCtrl as auth'
         })
-        .state('authentication', {
+        .state('layout.authentication', {
           url: '/sign_in',
           templateUrl: 'views/authentication.html',
           controller: 'AuthCtrl as auth'
         })
         .state('layout', {
           abstract: true,
-          templateUrl: 'views/layout.html'
+          templateUrl: 'views/layout.html',
+          controller: 'LayoutCtrl as layout'
         })
         .state('layout.courses', {
           url: '/courses',
@@ -35,7 +36,7 @@ angular
 
 
 
-      $urlRouterProvider.otherwise('/sign_in');
+      $urlRouterProvider.otherwise('/courses');
 
       $authProvider.configure({
         apiUrl: ENV.apiEndpoint,

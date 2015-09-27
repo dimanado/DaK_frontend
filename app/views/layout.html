@@ -10,14 +10,16 @@
         </button>
         <a class="navbar-brand" href="#/">DaK</a>
       </div>
-      
+
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
         <ul class="nav navbar-nav">
           <li ><a ui-sref="layout.courses">Courses</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li ><a ui-sref="authentication">Sign in</a></li>
-          <li ><a ui-sref="registration">Sign up</a></li>
+          <!--ng-class="isActive('/logout')"-->
+          <li ng-show="layout.isLoggedIn()" ><a ng-click="layout.signOutCl()" href="">Logout</a></li>
+          <li ng-show="layout.isLoggedOut()" ><a ui-sref="layout.authentication">Sign in</a></li>
+          <li ng-show="layout.isLoggedOut()" ><a ui-sref="layout.registration">Sign up</a></li>
         </ul>
       </div>
     </div>
