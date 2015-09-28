@@ -17,8 +17,11 @@ function LayoutCtrl(ENV, $scope, $state, $auth) {
     return (localStorage.getItem('auth_headers')) ? true : false;
   };
 
-  function isLoggedOut(){
-    return (!localStorage.getItem('auth_headers')) ? true : false;
+  function isLoggedOut(name){
+    if($state.current.name != 'layout.' + name)
+      return (!localStorage.getItem('auth_headers')) ? true : false;
+    else
+      return false;
   };
 
   function signOutCl(){

@@ -18,8 +18,8 @@
         <ul class="nav navbar-nav navbar-right">
           <!--ng-class="isActive('/logout')"-->
           <li ng-show="layout.isLoggedIn()" ><a ng-click="layout.signOutCl()" href="">Logout</a></li>
-          <li ng-show="layout.isLoggedOut()" ><a ui-sref="layout.authentication">Sign in</a></li>
-          <li ng-show="layout.isLoggedOut()" ><a ui-sref="layout.registration">Sign up</a></li>
+          <li ng-show="layout.isLoggedOut('authentication')" ><a ui-sref="layout.authentication">Sign in</a></li>
+          <li ng-show="layout.isLoggedOut('registration')" ><a ui-sref="layout.registration">Sign up</a></li>
         </ul>
       </div>
     </div>
