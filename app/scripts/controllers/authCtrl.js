@@ -3,10 +3,10 @@ angular
   .controller('AuthCtrl', AuthCtrl);
 
   AuthCtrl.$inject = [
-    'ENV', '$scope', '$state', '$auth'
+    'ENV', '$scope', '$state', '$auth', '$location'
   ];
 
-  function AuthCtrl (ENV, $scope, $state, $auth) {
+  function AuthCtrl (ENV, $scope, $state, $auth, $location) {
     console.log('AuthCtrl load');
     this.credentials = {};
 
@@ -18,9 +18,10 @@ angular
       $auth.submitLogin(this.credentials)
         .then(function(data) {
           console.log('success');
+          $state.go('layout.courses');
         })
         .catch(function(data) {
-          console.log('failure');
+          console.log('failure ' + data);
         });
     };
 
@@ -29,9 +30,10 @@ angular
       $auth.submitRegistration(this.credentials)
         .then(function(data) {
           console.log('success');
+          $state.go('authentication');
         })
         .catch(function(data) {
-          console.log('failure');
+          console.log('failure ' + data);
         });
     };
   };
