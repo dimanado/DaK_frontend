@@ -7,8 +7,6 @@ angular
     'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router'
   ])
 
-
-
   .config(['$stateProvider', '$urlRouterProvider', 'ENV', '$authProvider',
 
     function ($stateProvider, $urlRouterProvider, ENV, $authProvider) {
@@ -32,8 +30,33 @@ angular
           url: '/courses',
           templateUrl: 'views/courses.html',
           controller: 'CoursesCtrl as courses'
-        });
+        })
+        .state('layout.lhome', {
+          abstract: true,
+          templateUrl: 'views/home/lhome.html',
+          resolve: {
+            login: function($auth, $state) {
+              checkAuthenticationAndLogout($auth, $state);
+            }
+          }
+        })
+        .state('layout.lhome.home', {
+          url: '/home',
+          templateUrl: 'views/home/home.html'
+          //controller: 'CoursesCtrl as courses'
+        })
+        .state('layout.lhome.my_courses', {
+          url: '/home/my_courses',
+          templateUrl: 'views/home/my_courses.html',
+          controller: 'HomeCourseCtrl as courses'
+        })
 
+      function checkAuthenticationAndLogout($auth, $state) {
+        $auth.validateUser().then(function(data) {
+        }, function(data) {
+          $state.go('layout.authentication');
+        })
+      }
 
 
       $urlRouterProvider.otherwise('/courses');
@@ -42,4 +65,4 @@ angular
         apiUrl: ENV.apiEndpoint,
         storage: 'localStorage'
       });
-  }]);
+  }])
