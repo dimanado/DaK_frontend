@@ -4,7 +4,7 @@ angular
   .module('Dak', [
     'config', 'Dak.controllers',
     'ngAnimate', 'ngCookies', 'ngResource',
-    'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router'
+    'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router', 'Dak.services'
   ])
 
   .config(['$stateProvider', '$urlRouterProvider', 'ENV', '$authProvider',
@@ -48,7 +48,7 @@ angular
         .state('layout.lhome.my_courses', {
           url: '/home/my_courses',
           templateUrl: 'views/home/my_courses.html',
-          controller: 'HomeCourseCtrl as courses'
+          controller: 'HomeCourseCtrl as course'
         })
 
       function checkAuthenticationAndLogout($auth, $state) {
