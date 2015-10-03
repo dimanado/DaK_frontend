@@ -1,17 +1,9 @@
 angular
-  .module('Dak.services')
-  .factory('Course', Course);
-
-Course.$inject = [
-  '$resource'
-];
-
-function Course($resource) {
-  console.log('Course service load');
-  //courses.get()
-  this.courses = $resource(
-    "/courses/:id",
-    {
-      id: "@id"
-    });
-}
+  .module('Dak.services',[])
+  .factory('Course', ['$resource', 'ENV', function($resource, ENV) {
+    return $resource(ENV.apiEndpoint + "/courses/:id",
+      {
+        id: '@id'
+        //name: '@name'
+      });
+  }])
