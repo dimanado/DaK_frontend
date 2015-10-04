@@ -9,7 +9,8 @@ CoursesCtrl.$inject = [
 function HomeCourseCtrl(ENV, $scope, $state, Course) {
   console.log('HomeCourseCtrl load');
   this.nameCourse = undefined;
-  this.visible=false;
+  this.visible = false;
+  this.courses = undefined;
 
   this.changeVisible = changeVisible;
   this.createCourse = createCourse;
@@ -23,11 +24,20 @@ function HomeCourseCtrl(ENV, $scope, $state, Course) {
   function createCourse(){
     console.log('createCourse');
     Course.save({name:this.nameCourse});
+    getCourse()
+  }
+
+  function currentCourses(){
+    if( this.courses == undefined){
+      this.courses = Course.get();
+    }
+    return  this.courses;
   }
 
   function getCourse(){
     console.log('getCourse');
-    Course.get();
-    return ['mamka','papka','bahir', 'sdasd', 'sadasdasd', 'asdasdasd', '1asdasdasd', '22asdasdasd', '122asdasdasd','1122asdasdasd'];
+    var courses=currentCourses();
+    //Course.get();
+    return courses.courses;
   }
 }
