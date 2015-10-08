@@ -4,7 +4,7 @@ angular
   .module('Dak', [
     'config', 'Dak.controllers',
     'ngAnimate', 'ngCookies', 'ngResource',
-    'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router', 'Dak.services'
+    'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router', 'Dak.services','ngFileUpload'
   ])
 
   .config(['$stateProvider', '$urlRouterProvider', 'ENV', '$authProvider',
@@ -50,6 +50,11 @@ angular
           templateUrl: 'views/home/my_courses.html',
           controller: 'HomeCourseCtrl as course'
         })
+        .state('layout.lhome.video', {
+          url: '/home/my_video/:id',
+          templateUrl: 'views/home/my_video.html',
+          controller: 'homeVideoCtrl as video'
+        });
 
       function checkAuthenticationAndLogout($auth, $state) {
         $auth.validateUser().then(function(data) {

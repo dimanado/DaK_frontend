@@ -1,14 +1,18 @@
 <div class="container">
-  <div>
-    <button class="btn btn-default" ng-click="course.changeVisible()" >Add course</button>
-    <form class="form-inline" role="form" ng-show="course.visible" data-ng-submit="course.createCourse()">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="course" ng-model="course.nameCourse">
-      </div>
-      <button type="submit" class="btn btn-default">Add</button>
-    </form>
+  <div class="row">
+    <div>
+      <div class="form-group"><button class="btn btn-default" ng-click="course.changeVisible()" >Add course</button></div>
+      <form class="form-inline" role="form" ng-show="course.visible" data-ng-submit="course.createCourse()">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="course" ng-model="course.nameCourse">
+        </div>
+        <button type="submit" class="btn btn-default">Add</button>
+      </form>
+    </div>
   </div>
-  <div ng-repeat=" course in course.getCourse() ">
-    <a href="#" class="link_to_course">{{course.name}}</a>
+  <div class="row">
+    <div class="col-xs-4" ng-repeat=" course in course.getCourse() ">
+      <a ui-sref="layout.lhome.video({id: {{course.id}} })" class="link_to_course">{{course.name}}</a>
+    </div>
   </div>
 </div>

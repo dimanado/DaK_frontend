@@ -1,14 +1,18 @@
 <div class="container">
-    <form role="form" data-ng-submit="auth.signIn()">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <form role="form" data-ng-submit="auth.signIn()">
         <div class="text-center">
-            Log in
+          <div class ="form-group">Log in</div>
         </div>
         <div class="input-group-lg input-full-width">
-            <input type="email" placeholder="Email" ng-model="auth.credentials.email" class="form-control">
-            <input type="password" placeholder="Password" ng-model="auth.credentials.password" class="form-control">
+          <div class ="form-group"><input type="email" placeholder="Email" ng-model="auth.credentials.email" class="form-control"></div>
+          <div class ="form-group"><input type="password" placeholder="Password" ng-model="auth.credentials.password" class="form-control"></div>
         </div>
         <div>
-            <button class="btn btn-default pull-right">Next</button>
+          <button class="btn btn-default pull-right">Next</button>
         </div>
-    </form>
+      </form>
+    </div>
+  </div>
 </div>

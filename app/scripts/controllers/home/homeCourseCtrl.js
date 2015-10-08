@@ -24,7 +24,6 @@ function HomeCourseCtrl(ENV, $scope, $state, Course) {
   function createCourse(){
     console.log('createCourse');
     Course.save({name:this.nameCourse});
-    getCourse()
   }
 
   function currentCourses(){
