@@ -5,7 +5,7 @@
     <div class="btn btn-default" ngf-select ng-model="video.file" name="file"
          ngf-pattern="'video/*'" accept="video/*" ngf-max-size="2000MB" required>Select</div>
     <i ng-show="videoForm.file.$error.required">*required</i>
-    <i ng-show="video.file">{{video.file.name}} </i>
+    <i ng-show="video.file">{{ video.file.name }} </i>
   </div>
   <div class="form-group" ng-show="videoForm.file.$error.maxSize">
     <i>File too large</i>
@@ -19,13 +19,13 @@
 
   <div class="form-group">
     <div class="progress" ng-show="video.file.progressPercentage >= 0">
-      <div style="width:{{video.file.progressPercentage}}%"
+      <div ng-style="{ 'width' : video.file.progressPercentage + '%'  }"
            ng-bind="video.file.progressPercentage + '%'"></div>
     </div>
   </div>
   <div class="form-group">
     <div ng-show="video.file.progressPercentage">Upload Successful</div>
-    <div class="err" ng-show="errorMsg">{{video.errorMsg}}</div>
+    <div class="err" ng-show="errorMsg">{{ video.errorMsg }}</div>
   </div>
 </form>
 

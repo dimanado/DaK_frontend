@@ -13,14 +13,14 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
         <ul class="nav navbar-nav">
-          <li ><a ui-sref="layout.lhome.home">Home</a></li>
-          <li ><a ui-sref="layout.courses">Courses</a></li>
+          <li ><a ui-sref="applicationLayout.homeLayout.home">Home</a></li>
+          <li ><a ui-sref="applicationLayout.courses">Courses</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <!--ng-class="isActive('/logout')"-->
           <li ng-show="layout.isLoggedIn()" ><a ng-click="layout.signOutCl()" href="">Logout</a></li>
-          <li ng-show="layout.isLoggedOut('authentication')" ><a ui-sref="layout.authentication">Sign in</a></li>
-          <li ng-show="layout.isLoggedOut('registration')" ><a ui-sref="layout.registration">Sign up</a></li>
+          <li ng-show="layout.isLoggedOut('authentication')" ><a ui-sref="applicationLayout.authentication">Sign in</a></li>
+          <li ng-show="layout.isLoggedOut('registration')" ><a ui-sref="applicationLayout.registration">Sign up</a></li>
         </ul>
       </div>
     </div>

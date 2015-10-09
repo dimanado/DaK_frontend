@@ -8,13 +8,21 @@ CoursesCtrl.$inject = [
 
 function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload) {
   console.log('homeVideoCtrl load');
-  this.submit = function() {
-    if ( this.file && !this.file.$error) {
-      this.upload(this.file);
+
+  var vm = this;
+
+  vm.file = undefined;
+
+  vm.submit = submit;
+  vm.upload = upload;
+
+  function submit() {
+    if ( vm.file && !vm.file.$error) {
+      vm.upload(vm.file);
     }
   };
 
-  this.upload = function (file) {
+  function upload (file) {
     Upload.upload({
       url: ENV.apiEndpoint + "/video/",
       data: {file: file, 'id_course': $stateParams.id},
@@ -28,23 +36,6 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload) {
       console.log('progress: ' + file.progressPercentage + '% ' + evt.config.data.file.name);
     });
   };
-  //this.uploadPic=uploadPic;
-  //
-  //function uploadPic (file) {
-  //  file.upload = Upload.upload({
-  //    url: '/1455',
-  //    data: {file: file}
-  //  });
-  //
-  //  file.upload.then(function (response) {
-  //    console.log('upload success');
-  //  }, function (response) {
-  //    console.log('upload error');
-  //  }, function (evt) {
-  //    // Math.min is to fix IE which reports 200% sometimes
-  //    file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-  //  });
-  //}
 
 }
 

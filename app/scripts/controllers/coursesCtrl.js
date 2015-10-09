@@ -8,4 +8,5 @@ angular
 
   function CoursesCtrl(ENV, $scope, $state) {
     console.log('CoursesCtrl load');
+    var vm = this;
   }

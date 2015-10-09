@@ -8,29 +8,30 @@ CoursesCtrl.$inject = [
 
 function HomeCourseCtrl(ENV, $scope, $state, Course) {
   console.log('HomeCourseCtrl load');
-  this.nameCourse = undefined;
-  this.visible = false;
-  this.courses = undefined;
+  var vm = this;
+  vm.nameCourse = undefined;
+  vm.visible = false;
+  vm.courses = undefined;
 
-  this.changeVisible = changeVisible;
-  this.createCourse = createCourse;
-  this.getCourse = getCourse;
+  vm.changeVisible = changeVisible;
+  vm.createCourse = createCourse;
+  vm.getCourse = getCourse;
 
   function changeVisible(){
     console.log('changeVisible');
-    this.visible= this.visible ? false : true ;
+    vm.visible= vm.visible ? false : true ;
   }
 
   function createCourse(){
     console.log('createCourse');
-    Course.save({name:this.nameCourse});
+    Course.save({name:vm.nameCourse});
   }
 
   function currentCourses(){
-    if( this.courses == undefined){
-      this.courses = Course.get();
+    if( vm.courses == undefined){
+      vm.courses = Course.get();
     }
-    return  this.courses;
+    return  vm.courses;
   }
 
   function getCourse(){

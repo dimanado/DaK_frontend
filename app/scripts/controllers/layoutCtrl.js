@@ -8,10 +8,11 @@ LayoutCtrl.$inject = [
 
 function LayoutCtrl(ENV, $scope, $state, $auth) {
   console.log('LayoutCtrl load');
+  var vm = this;
 
-  this.isLoggedIn=isLoggedIn;
-  this.isLoggedOut=isLoggedOut;
-  this.signOutCl = signOutCl;
+  vm.isLoggedIn=isLoggedIn;
+  vm.isLoggedOut=isLoggedOut;
+  vm.signOutCl = signOutCl;
 
   function isLoggedIn(){
     return (localStorage.getItem('auth_headers')) ? true : false;
@@ -28,7 +29,7 @@ function LayoutCtrl(ENV, $scope, $state, $auth) {
     $auth.signOut()
       .then(function(resp) {
         console.log('success');
-        $state.go('layout.courses');
+        $state.go('applicationLayout.courses');
       })
       .catch(function(resp) {
         console.log('error');

@@ -11,55 +11,55 @@ angular
 
     function ($stateProvider, $urlRouterProvider, ENV, $authProvider) {
       $stateProvider
-        .state('layout.registration', {
+        .state('applicationLayout.registration', {
           url: '/sign_up',
           templateUrl: 'views/registration.html',
           controller: 'AuthCtrl as auth'
         })
-        .state('layout.authentication', {
+        .state('applicationLayout.authentication', {
           url: '/sign_in',
           templateUrl: 'views/authentication.html',
           controller: 'AuthCtrl as auth'
         })
-        .state('layout', {
+        .state('applicationLayout', {
           abstract: true,
-          templateUrl: 'views/layout.html',
+          templateUrl: 'views/applicationLayout.html',
           controller: 'LayoutCtrl as layout'
         })
-        .state('layout.courses', {
+        .state('applicationLayout.courses', {
           url: '/courses',
           templateUrl: 'views/courses.html',
           controller: 'CoursesCtrl as courses'
         })
-        .state('layout.lhome', {
+        .state('applicationLayout.homeLayout', {
           abstract: true,
-          templateUrl: 'views/home/lhome.html',
+          templateUrl: 'views/home/homeLayout.html',
           resolve: {
             login: function($auth, $state) {
               checkAuthenticationAndLogout($auth, $state);
             }
           }
         })
-        .state('layout.lhome.home', {
+        .state('applicationLayout.homeLayout.home', {
           url: '/home',
           templateUrl: 'views/home/home.html'
           //controller: 'CoursesCtrl as courses'
         })
-        .state('layout.lhome.my_courses', {
-          url: '/home/my_courses',
-          templateUrl: 'views/home/my_courses.html',
+        .state('applicationLayout.homeLayout.myCourses', {
+          url: '/home/myCourses',
+          templateUrl: 'views/home/myCourses.html',
           controller: 'HomeCourseCtrl as course'
         })
-        .state('layout.lhome.video', {
-          url: '/home/my_video/:id',
-          templateUrl: 'views/home/my_video.html',
+        .state('applicationLayout.homeLayout.video', {
+          url: '/home/myVideo/:id',
+          templateUrl: 'views/home/myVideo.html',
           controller: 'homeVideoCtrl as video'
         });
 
       function checkAuthenticationAndLogout($auth, $state) {
         $auth.validateUser().then(function(data) {
         }, function(data) {
-          $state.go('layout.authentication');
+          $state.go('applicationLayout.authentication');
         })
       }
 

@@ -12,7 +12,7 @@
   </div>
   <div class="row">
     <div class="col-xs-4" ng-repeat=" course in course.getCourse() ">
-      <a ui-sref="layout.lhome.video({id: {{course.id}} })" class="link_to_course">{{course.name}}</a>
+      <a ui-sref="applicationLayout.homeLayout.video({id: {{ course.id }} })" class="link_to_course">{{ course.name }}</a>
     </div>
   </div>
 </div>
