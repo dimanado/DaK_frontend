@@ -32,6 +32,16 @@ module.exports = function (grunt) {
     yeoman: appConfig,
 
     // Watches files for changes and runs tasks based on the changed files
+    sass: {
+      options: {
+        sourceMap: true
+      },
+      dist: {
+        files: {
+          'main.css': 'main.scss'
+        }
+      }
+    },
     watch: {
       bower: {
         files: ['bower.json'],
@@ -160,7 +170,7 @@ module.exports = function (grunt) {
       },
       server: {
         options: {
-          map: true,
+          map: true
         },
         files: [{
           expand: true,
