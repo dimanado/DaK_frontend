@@ -4,7 +4,11 @@ angular
   .module('Dak', [
     'config', 'Dak.controllers',
     'ngAnimate', 'ngCookies', 'ngResource',
-    'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router', 'Dak.services','ngFileUpload'
+    'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router', 'Dak.services','ngFileUpload',
+    "com.2fdevs.videogular",
+    "com.2fdevs.videogular.plugins.controls",
+    "com.2fdevs.videogular.plugins.overlayplay",
+    "com.2fdevs.videogular.plugins.poster"
   ])
 
   .config(['$stateProvider', '$urlRouterProvider', 'ENV', '$authProvider',

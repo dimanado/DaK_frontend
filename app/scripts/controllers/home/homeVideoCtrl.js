@@ -3,10 +3,10 @@ angular
   .controller('homeVideoCtrl', homeVideoCtrl);
 
 CoursesCtrl.$inject = [
-  'ENV', '$scope', '$state', '$stateParams','Upload'
+  'ENV', '$scope', '$state', '$stateParams', 'Upload', '$sce'
 ];
 
-function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload) {
+function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload, $sce) {
   console.log('homeVideoCtrl load');
 
   var vm = this;
@@ -35,6 +35,28 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload) {
       file.progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
       console.log('progress: ' + file.progressPercentage + '% ' + evt.config.data.file.name);
     });
+  };
+
+  this.config = {
+    sources: [
+      //{src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.mp4"), type: "video/mp4"},
+      //{src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.webm"), type: "video/webm"},
+      {src: $sce.trustAsResourceUrl("http://localhost:3000/uploads/RackMultipart20151012-30031-7t5tth.mp4"), type: "video/ogg"}
+      //{src: $sce.trustAsResourceUrl("/uploads/VID_20150803_091318.mp4"), type: "video/mp4"}
+    ],
+    tracks: [
+      {
+        src: "http://www.videogular.com/assets/subs/pale-blue-dot.vtt",
+        kind: "subtitles",
+        srclang: "en",
+        label: "English",
+        default: ""
+      }
+    ],
+    theme: "bower_components/videogular-themes-default/videogular.css",
+    plugins: {
+      poster: "http://www.videogular.com/assets/images/videogular.png"
+    }
   };
 
 }

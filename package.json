@@ -50,7 +50,8 @@
     "karma-jasmine": "*",
     "karma-phantomjs-launcher": "*",
     "time-grunt": "^1.0.0",
-    "tiny-lr": "^0.2.0"
+    "tiny-lr": "^0.2.0",
+    "videogular": "^1.2.8"
   },
   "engines": {
     "node": ">=0.10.0"
