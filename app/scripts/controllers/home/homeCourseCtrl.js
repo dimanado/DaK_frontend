@@ -25,7 +25,6 @@ function HomeCourseCtrl(ENV, $scope, $state, Course) {
 
   function createCourse() {
     console.log('createCourse');
-    debugger;
     Course.save({name: vm.nameCourse}).$promise
       .then(function(data) {
         console.log('success');
@@ -37,9 +36,6 @@ function HomeCourseCtrl(ENV, $scope, $state, Course) {
   }
 
   function getCourses(){
-    //if( vm.courses == undefined){
-    //  vm.courses = Course.get();
-    //}
     Course.get().$promise
       .then(function(data) {
         vm.courses = data.courses;

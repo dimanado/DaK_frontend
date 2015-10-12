@@ -2,6 +2,10 @@
 
 <form class="form-horizontal" role="form" data-ng-submit="video.submit()" name="videoForm">
   <div class="form-group">
+    Title:
+    <input type="text" name="name" ng-model="video.name" size="31" required>
+  </div>
+  <div class="form-group">
     <div class="btn btn-default" ngf-select ng-model="video.file" name="file"
          ngf-pattern="'video/*'" accept="video/*" ngf-max-size="2000MB" required>Select</div>
     <i ng-show="videoForm.file.$error.required">*required</i>
@@ -29,25 +33,8 @@
   </div>
 </form>
 
-
-<videogular vg-theme="video.config.theme">
-  <vg-media vg-src="video.config.sources">
-  </vg-media>
-
-  <vg-controls>
-    <vg-play-pause-button></vg-play-pause-button>
-    <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
-    <vg-scrub-bar>
-      <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-    </vg-scrub-bar>
-    <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
-    <vg-volume>
-      <vg-mute-button></vg-mute-button>
-      <vg-volume-bar></vg-volume-bar>
-    </vg-volume>
-    <vg-fullscreen-button></vg-fullscreen-button>
-  </vg-controls>
-
-  <vg-overlay-play></vg-overlay-play>
-  <!--<vg-poster vg-url='video.config.plugins.poster'></vg-poster>-->
-</videogular>
+<div class="row">
+  <div class="col-xs-4" ng-repeat=" video in video.videos ">
+    <a ui-sref="applicationLayout.homeLayout.currentVideo({id: {{ video.id }} })" class="link_to_course">{{ video.name }}</a>
+  </div>
+</div>

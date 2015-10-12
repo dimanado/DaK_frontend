@@ -58,7 +58,13 @@ angular
           url: '/home/myVideo/:id',
           templateUrl: 'views/home/myVideo.html',
           controller: 'homeVideoCtrl as video'
+        })
+        .state('applicationLayout.homeLayout.currentVideo', {
+          url: '/home/currentVideo/:id',
+          templateUrl: 'views/home/currentVideo.html',
+          controller: 'homeCurrentVideoCtrl as video'
         });
+
 
       function checkAuthenticationAndLogout($auth, $state) {
         $auth.validateUser().then(function(data) {
