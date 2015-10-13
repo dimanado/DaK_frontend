@@ -2,7 +2,7 @@ angular
   .module('Dak.controllers')
   .controller('HomeCourseCtrl', HomeCourseCtrl);
 
-CoursesCtrl.$inject = [
+HomeCourseCtrl.$inject = [
   'ENV', '$scope', '$state', 'Course'
 ];
 

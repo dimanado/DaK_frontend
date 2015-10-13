@@ -25,6 +25,11 @@ angular
           templateUrl: 'views/authentication.html',
           controller: 'AuthCtrl as auth'
         })
+        .state('applicationLayout.currentVideo', {
+          url: '/currentVideo/:id',
+          templateUrl: 'views/video.html',
+          controller: 'homeVideoCtrl as video'
+        })
         .state('applicationLayout', {
           abstract: true,
           templateUrl: 'views/applicationLayout.html',

@@ -2,7 +2,7 @@ angular
   .module('Dak.controllers')
   .controller('homeCurrentVideoCtrl', homeCurrentVideoCtrl);
 
-CoursesCtrl.$inject = [
+homeCurrentVideoCtrl.$inject = [
   'ENV', '$scope', '$state', 'Video', '$stateParams', '$sce'
 ];
 

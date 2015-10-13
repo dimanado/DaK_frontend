@@ -2,7 +2,7 @@ angular
   .module('Dak.controllers')
   .controller('homeVideoCtrl', homeVideoCtrl);
 
-CoursesCtrl.$inject = [
+homeVideoCtrl.$inject = [
   'ENV', '$scope', '$state', '$stateParams', 'Upload', 'Video'
 ];
 
@@ -14,13 +14,20 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload, Video) {
   vm.file = undefined;
   vm.name = undefined;
   vm.videos = undefined;
+  vm.visible = false;
 
   vm.submit = submit;
   vm.upload = upload;
   vm.getVideos = getVideos;
+  vm.changeVisible = changeVisible;
 
 
   getVideos();
+
+  function changeVisible() {
+    console.log('changeVisible');
+    vm.visible= vm.visible ? false : true ;
+  }
 
   function getVideos() {
     Video.get({id_course:  $stateParams.id}).$promise
