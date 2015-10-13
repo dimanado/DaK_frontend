@@ -3,10 +3,11 @@ angular
   .controller('CoursesCtrl', CoursesCtrl);
 
   CoursesCtrl.$inject = [
-    'ENV', '$scope', '$state'
+    'ENV', '$scope', '$state', 'Course'
   ];
 
-  function CoursesCtrl(ENV, $scope, $state) {
+  function CoursesCtrl(ENV, $scope, $state, Course) {
     console.log('CoursesCtrl load');
     var vm = this;
+    Course.get();
   }
