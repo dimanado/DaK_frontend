@@ -23,7 +23,7 @@ gulp.task('scss', function () {
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./app/styles/css'));
+    .pipe(gulp.dest('./app/css'));
 });
 
 gulp.task('watch', function () {
