@@ -8,17 +8,19 @@ angular
 
   function AuthCtrl (ENV, $scope, $state, $auth, $location) {
     console.log('AuthCtrl load');
-    this.credentials = {};
+    var vm = this;
 
-    this.signIn = signIn;
-    this.signUp = signUp;
+    vm.credentials = {};
+
+    vm.signIn = signIn;
+    vm.signUp = signUp;
 
     function signIn() {
-      console.log(this.credentials);
-      $auth.submitLogin(this.credentials)
+      console.log(vm.credentials);
+      $auth.submitLogin(vm.credentials)
         .then(function(data) {
           console.log('success');
-          $state.go('layout.courses');
+          $state.go('applicationLayout.courses');
         })
         .catch(function(data) {
           console.log('failure ' + data);
@@ -26,8 +28,8 @@ angular
     };
 
     function signUp() {
-      console.log(this.credentials);
-      $auth.submitRegistration(this.credentials)
+      console.log(vm.credentials);
+      $auth.submitRegistration(vm.credentials)
         .then(function(data) {
           console.log('success');
           $state.go('authentication');

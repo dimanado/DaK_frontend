@@ -7,3 +7,5 @@
 .sass-cache
 /.idea
 /**/*~
+/build/**
+/app/css/**

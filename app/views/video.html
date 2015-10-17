@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="form-group"><h1>Video</h1></div>
+  <div class="row">
+    <div class="col-xs-4" ng-repeat=" video in video.videos ">
+      <a ui-sref="applicationLayout.homeLayout.currentVideo({id: {{ video.id }} })" class="link_to_course">{{ video.name }}</a>
+    </div>
+  </div>
+</div>
