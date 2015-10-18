@@ -32,7 +32,7 @@ angular
       $auth.submitRegistration(vm.credentials)
         .then(function(data) {
           console.log('success');
-          $state.go('authentication');
+          $state.go('applicationLayout.authentication');
         })
         .catch(function(data) {
           console.log('failure ' + data);
