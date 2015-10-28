@@ -1,9 +1,8 @@
 angular
   .module('Dak.services',[])
   .factory('Course', ['$resource', 'ENV', function($resource, ENV) {
-    return $resource(ENV.apiEndpoint + "/courses/:id/:URLStr",
+    return $resource(ENV.apiEndpoint + "/courses/:id",
       {
-        id: '@id',
-        URLStr: '@URLStr'
+        id: '@id'
       });
   }])
