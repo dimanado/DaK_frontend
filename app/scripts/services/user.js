@@ -1,0 +1,8 @@
+angular
+  .module('Dak.services')
+  .factory('User', ['$resource' ,'ENV', function($resource, ENV) {
+    return $resource(ENV.apiEndpoint + "/users/:id",
+      {
+        id: '@id'
+      });
+  }]);

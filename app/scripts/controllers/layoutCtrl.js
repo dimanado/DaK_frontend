@@ -13,28 +13,64 @@ function LayoutCtrl(ENV, $scope, $state, $auth) {
   vm.isLoggedIn=isLoggedIn;
   vm.isLoggedOut=isLoggedOut;
   vm.signOutCl = signOutCl;
+  vm.userName = userName;
+
+  vm.userIsValid = undefined;
+  vm.userNameStr = undefined;
+
+  $scope.$on('reloadUser', function (event, data) {
+    validateUser();
+    userName();
+  });
+
+  validateUser();
+  userName();
 
   function isLoggedIn(){
-    return (localStorage.getItem('auth_headers')) ? true : false;
+    return userIsValid;
   };
 
   function isLoggedOut(name){
-    if($state.current.name != 'layout.' + name)
-      return (!localStorage.getItem('auth_headers')) ? true : false;
+
+    if($state.current.name != 'layout.' + name) {
+      return !userIsValid;
+    }
     else
       return false;
   };
+
+  function validateUser(){
+    $auth.validateUser()
+      .then(function(resp) {
+        userIsValid = true
+      })
+      .catch(function(resp) {
+        userIsValid = false
+      });
+  }
 
   function signOutCl(){
     $auth.signOut()
       .then(function(resp) {
         console.log('success');
         $state.go('applicationLayout.courses');
+        window.localStorage.removeItem('status')
+        validateUser();
+        userName();
       })
       .catch(function(resp) {
         console.log('error');
       });
   };
+
+  function userName(){
+    var status = JSON.parse(window.localStorage['status'] || '{}');
+    if(status != null) {
+      vm.userNameStr = status.name;
+    }
+    else
+      vm.userNameStr = null;
+  }
 
 
 }

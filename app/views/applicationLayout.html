@@ -17,7 +17,7 @@
           <li ><a ui-sref="applicationLayout.courses">Courses</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <!--ng-class="isActive('/logout')"-->
+          <li><a href="">{{layout.userNameStr}}</a></li></li>
           <li ng-show="layout.isLoggedIn()" ><a ng-click="layout.signOutCl()" href="">Logout</a></li>
           <li ng-show="layout.isLoggedOut('authentication')" ><a ui-sref="applicationLayout.authentication">Sign in</a></li>
           <li ng-show="layout.isLoggedOut('registration')" ><a ui-sref="applicationLayout.registration">Sign up</a></li>
