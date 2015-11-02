@@ -1,5 +1,12 @@
 <div class="container">
-  <div class="form-group"><h1>Video</h1></div>
+  <div class="row">
+    <!--<div class="col-md-3"><h1>Video </h1></div>-->
+    <div class="col-md-3 col-md-offset-9">
+      <div class="form-group">
+        <button class="btn btn-default" ng-click="video.">Subscribe</button>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-xs-4" ng-repeat=" video in video.videos ">
       <a ui-sref="applicationLayout.homeLayout.currentVideo({id: {{ video.id }} })" class="link_to_course">{{ video.name }}</a>

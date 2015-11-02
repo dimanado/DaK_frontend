@@ -17,6 +17,7 @@ function LayoutCtrl(ENV, $scope, $state, $auth) {
 
   vm.userIsValid = undefined;
   vm.userNameStr = undefined;
+  vm.userRoleStr = undefined;
 
   $scope.$on('reloadUser', function (event, data) {
     validateUser();
@@ -67,10 +68,11 @@ function LayoutCtrl(ENV, $scope, $state, $auth) {
     var status = JSON.parse(window.localStorage['status'] || '{}');
     if(status != null) {
       vm.userNameStr = status.name;
+      vm.userRoleStr = status.role;
     }
     else
       vm.userNameStr = null;
-  }
+  };
 
 
 }

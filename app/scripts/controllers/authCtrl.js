@@ -3,10 +3,10 @@ angular
   .controller('AuthCtrl', AuthCtrl);
 
   AuthCtrl.$inject = [
-    'ENV', '$scope', '$state', '$auth', '$location', 'User'
+    'ENV', '$scope', '$state', '$auth', '$location', 'User', '$rootScope'
   ];
 
-  function AuthCtrl (ENV, $scope, $state, $auth, $location, User) {
+  function AuthCtrl (ENV, $scope, $state, $auth, $location, User, $rootScope) {
     console.log('AuthCtrl load');
     var vm = this;
 
@@ -23,7 +23,7 @@ angular
           console.log('success load ');
           $state.go('applicationLayout.courses');
           getUserState();
-          $scope.$parent.$broadcast('reloadUser', {});
+
 
         })
         .catch(function(data) {
@@ -53,6 +53,7 @@ angular
             role: data.users.role
           };
           window.localStorage['status'] = JSON.stringify(status);
+          $rootScope.$broadcast('reloadUser');
         })
         .catch(function() {
 

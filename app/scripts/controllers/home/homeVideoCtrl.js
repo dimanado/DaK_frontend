@@ -20,6 +20,7 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload, Video) {
   vm.upload = upload;
   vm.getVideos = getVideos;
   vm.changeVisible = changeVisible;
+  vm.subscribeCourse = subscribeCourse;
 
 
   getVideos();
@@ -60,6 +61,17 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload, Video) {
       console.log('progress: ' + file.progressPercentage + '% ' + evt.config.data.file.name);
     });
   };
+
+  function subscribeCourse()
+  {
+    //.get({id_course:  $stateParams.id}).$promise
+    //  .then(function(data) {
+    //
+    //  })
+    //  .catch(function() {
+    //
+    //  });
+  }
 
 }
 
