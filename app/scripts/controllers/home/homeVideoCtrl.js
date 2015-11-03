@@ -3,10 +3,10 @@ angular
   .controller('homeVideoCtrl', homeVideoCtrl);
 
 homeVideoCtrl.$inject = [
-  'ENV', '$scope', '$state', '$stateParams', 'Upload', 'Video'
+  'ENV', '$scope', '$state', '$stateParams', 'Upload', 'Video', 'Subscription'
 ];
 
-function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload, Video) {
+function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload, Video, Subscription) {
   console.log('homeVideoCtrl load');
 
   var vm = this;
@@ -64,13 +64,13 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload, Video) {
 
   function subscribeCourse()
   {
-    //.get({id_course:  $stateParams.id}).$promise
-    //  .then(function(data) {
-    //
-    //  })
-    //  .catch(function() {
-    //
-    //  });
+    Subscription.save({id:  $stateParams.id, str: 'add_course'}).$promise
+      .then(function(data) {
+        //добавить неактивную унопку и подпись: вы уже подписаны
+      })
+      .catch(function() {
+
+      });
   }
 
 }
