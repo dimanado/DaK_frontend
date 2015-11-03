@@ -26,11 +26,11 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload, Video) {
 
   function changeVisible() {
     console.log('changeVisible');
-    vm.visible= vm.visible ? false : true ;
+    vm.visible = !vm.visible;
   }
 
   function getVideos() {
-    Video.get({id_course:  $stateParams.id}).$promise
+    Video.get({ id_course:  $stateParams.id }).$promise
       .then(function(data) {
         vm.videos = data.video;
       })
@@ -40,7 +40,7 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload, Video) {
   }
 
   function submit() {
-    if ( vm.file && !vm.file.$error) {
+    if (vm.file && !vm.file.$error) {
       vm.upload(vm.file);
     }
   };
