@@ -14,10 +14,12 @@ function LayoutCtrl(ENV, $scope, $state, $auth) {
   vm.isLoggedOut=isLoggedOut;
   vm.signOutCl = signOutCl;
   vm.userName = userName;
+  vm.checkRole = checkRole;
 
   vm.userIsValid = undefined;
   vm.userNameStr = undefined;
   vm.userRoleStr = undefined;
+
 
   $scope.$on('reloadUser', function (event, data) {
     validateUser();
@@ -73,6 +75,10 @@ function LayoutCtrl(ENV, $scope, $state, $auth) {
     else
       vm.userNameStr = null;
   };
+
+  function checkRole(checkStr){
+    return vm.userRoleStr == checkStr;
+  }
 
 
 }

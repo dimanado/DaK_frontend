@@ -4,5 +4,7 @@ angular
     return $resource(ENV.apiEndpoint + "/users/:id",
       {
         id: '@id'
+      },{
+        charge: {method:'PATCH', params:{id: '@id'}}
       });
   }]);
