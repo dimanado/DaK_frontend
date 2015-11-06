@@ -3,10 +3,10 @@ angular
   .controller('homeVideoCtrl', homeVideoCtrl);
 
 homeVideoCtrl.$inject = [
-  'ENV', '$scope', '$state', '$stateParams', 'Upload', 'Video'
+  'ENV', '$scope', '$state', '$stateParams', 'Upload', 'Video', 'Subscription'
 ];
 
-function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload, Video) {
+function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload, Video, Subscription) {
   console.log('homeVideoCtrl load');
 
   var vm = this;
@@ -15,14 +15,17 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload, Video) {
   vm.name = undefined;
   vm.videos = undefined;
   vm.visible = false;
+  vm.isSubscribe = undefined;
 
   vm.submit = submit;
   vm.upload = upload;
   vm.getVideos = getVideos;
   vm.changeVisible = changeVisible;
-
+  vm.subscribeCourse = subscribeCourse;
+  vm.subscriptionStatus = subscriptionStatus;
 
   getVideos();
+  subscriptionStatus();
 
   function changeVisible() {
     console.log('changeVisible');
@@ -60,6 +63,25 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload, Video) {
       console.log('progress: ' + file.progressPercentage + '% ' + evt.config.data.file.name);
     });
   };
+
+  function subscribeCourse() {
+    Subscription.save({id:  $stateParams.id, str: 'add_course'}).$promise
+      .then(function(data) {
+        subscriptionStatus();
+      })
+      .catch(function() {
+      });
+  }
+
+  function subscriptionStatus() {
+    Subscription.get({id:  $stateParams.id, str: 'check_status'}).$promise
+      .then(function(data) {
+        vm.isSubscribe = true;
+      })
+      .catch(function() {
+        vm.isSubscribe = false;
+      });
+  }
 
 }
 
