@@ -30,13 +30,13 @@ function LayoutCtrl(ENV, $scope, $state, $auth) {
   userName();
 
   function isLoggedIn(){
-    return userIsValid;
+    return vm.userIsValid;
   };
 
   function isLoggedOut(name){
 
     if($state.current.name != 'layout.' + name) {
-      return !userIsValid;
+      return !vm.userIsValid;
     }
     else
       return false;
@@ -45,10 +45,10 @@ function LayoutCtrl(ENV, $scope, $state, $auth) {
   function validateUser(){
     $auth.validateUser()
       .then(function(resp) {
-        userIsValid = true
+        vm.userIsValid = true
       })
       .catch(function(resp) {
-        userIsValid = false
+        vm.userIsValid = false
       });
   }
 
