@@ -1,8 +1,16 @@
-<div class="container">
-  <div class="form-group"><h1>Courses</h1></div>
+<div id="courses" class="container">
   <div class="row">
     <div class="col-xs-4" ng-repeat=" course in courses.courses ">
-      <div class="form-group"><a ui-sref="applicationLayout.currentVideo({id: {{ course.id }} })" class="link_to_course">{{ course.name }}</a></div>
+      <a ui-sref="applicationLayout.currentVideo({id: {{ course.id }} })" class="link_to_course">
+        <div class="panel panel-default">
+          <div class="panel-heading title">
+            {{ course.name }}
+          </div>
+          <div class="panel-body">
+            <img class="content" src="http://cs10071.vk.me/u95512993/-14/x_6d968546.jpg" />
+          </div>
+        </div>
+      </a>
     </div>
   </div>
 </div>

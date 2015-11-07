@@ -1,4 +1,4 @@
-<div class="container">
+<div id="courses" class="container">
   <div ng-show = "{{layout.checkRole('lecturer')}}" >
     <div class="row">
       <div>
@@ -13,8 +13,16 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-4" ng-repeat=" course in course.courses ">
-      <a ui-sref="applicationLayout.homeLayout.video({id: {{ course.id }} })" class="link_to_course">{{ course.name }}</a>
+    <div class="col-xs-4" ng-repeat="course in course.courses ">
+      <div class="panel panel-default">
+        <div class="panel-heading title">
+          <a ui-sref="applicationLayout.homeLayout.video({id: {{ course.id }} })" class="link_to_course">{{ course.name }}</a>
+        </div>
+        <div class="panel-body content">
+          <img class="content" src="http://files8.adme.ru/files/news/part_33/334805/cats5.jpg" />
+        </div>
+      </div>
     </div>
   </div>
+
 </div>
