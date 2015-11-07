@@ -85,4 +85,4 @@ angular
         apiUrl: ENV.apiEndpoint,
         storage: 'localStorage'
       });
-  }])
+  }]);

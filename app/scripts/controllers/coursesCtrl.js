@@ -14,7 +14,7 @@ angular
     getCourses();
 
     function getCourses(){
-      Course.get({URLStr: 'all_courses'}).$promise
+      Course.get({all: true}).$promise
         .then(function(data) {
           vm.courses = data.courses;
         })
