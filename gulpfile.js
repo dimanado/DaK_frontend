@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps');
 
 
-gulp.task('server', function() {
+gulp.task('server', ['watch'], function() {
   connect.server({
     root: ['app', '.'],
     port: 9000,
@@ -28,7 +28,7 @@ gulp.task('scss', function () {
 
 gulp.task('watch', function () {
   gulp.watch(['./app/views/*.html'], ['html']);
-  gulp.watch('./sass/**/*.scss', ['scss']);
+  gulp.watch(['./app/styles/scss/**/*.scss'], ['scss']);
 });
 
-gulp.task('default', ['scss', 'server', 'watch']);
+gulp.task('default', ['server', 'watch']);
