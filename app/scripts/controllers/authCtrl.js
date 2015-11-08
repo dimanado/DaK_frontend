@@ -50,7 +50,7 @@ angular
         .then(function(data) {
           var status = {
             name: data.users.email,
-            role: data.users.role
+            roles: data.users.roles
           };
           window.localStorage['status'] = JSON.stringify(status);
           $rootScope.$broadcast('reloadUser');

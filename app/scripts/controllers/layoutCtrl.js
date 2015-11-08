@@ -18,7 +18,7 @@ function LayoutCtrl(ENV, $scope, $state, $auth) {
 
   vm.userIsValid = undefined;
   vm.userNameStr = undefined;
-  vm.userRoleStr = undefined;
+  vm.userRoleMas = undefined;
 
 
   $scope.$on('reloadUser', function (event, data) {
@@ -70,14 +70,20 @@ function LayoutCtrl(ENV, $scope, $state, $auth) {
     var status = JSON.parse(window.localStorage['status'] || '{}');
     if(status != null) {
       vm.userNameStr = status.name;
-      vm.userRoleStr = status.role;
+      vm.userRoleMas = status.roles;
     }
     else
       vm.userNameStr = null;
   };
 
   function checkRole(checkStr){
-    return vm.userRoleStr == checkStr;
+    //return vm.userRoleMas == checkStr;
+    var returnBool = false;
+    vm.userRoleMas.forEach(function(item) {
+      if(checkStr === item.name)
+        returnBool = true;
+    });
+    return returnBool
   }
 
 
