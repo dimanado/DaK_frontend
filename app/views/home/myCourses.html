@@ -1,7 +1,7 @@
-<div class="container">
+<div id="courses" class="container" style="width:100%">
   <div ng-show = "{{layout.checkRole('lecturer')}}" >
     <div class="row">
-      <div>
+      <div class="col-md-8">
         <div class="form-group"><button class="btn btn-default" ng-click="course.changeVisible()" >Add course</button></div>
         <form class="form-inline" role="form" ng-show="course.visible" data-ng-submit="course.createCourse()">
           <div class="form-group">
@@ -12,9 +12,20 @@
       </div>
     </div>
   </div>
+
   <div class="row">
-    <div class="col-xs-4" ng-repeat=" course in course.courses ">
-      <a ui-sref="applicationLayout.homeLayout.video({id: {{ course.id }} })" class="link_to_course">{{ course.name }}</a>
+    <div class="col-md-4" ng-repeat="course in course.courses ">
+      <a ui-sref="applicationLayout.homeLayout.video({id: {{ course.id }} })" class="link_to_course">
+        <div class="panel panel-default">
+          <div class="panel-heading title">
+            {{ course.name }}
+          </div>
+          <div class="panel-body content">
+            <img class="content" src="http://files8.adme.ru/files/news/part_33/334805/cats5.jpg" />
+          </div>
+        </div>
+      </a>
     </div>
   </div>
+
 </div>
