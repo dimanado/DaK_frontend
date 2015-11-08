@@ -7,6 +7,10 @@
       <input type="text" name="name" ng-model="video.name" size="31" required>
     </div>
     <div class="form-group">
+      Description:
+      <input type="text" name="description" ng-model="video.description" size="31" required>
+    </div>
+    <div class="form-group">
       <div class="btn btn-default" ngf-select ng-model="video.file" name="file"
            ngf-pattern="'video/*'" accept="video/*" ngf-max-size="2000MB" required>Select</div>
       <i ng-show="videoForm.file.$error.required">*required</i>
@@ -42,8 +46,7 @@
     </div>
     <div class="col-md-8 video-description">
       <h3 data-ng-bind="video.name"></h3>
-      <p style="text-overflow:ellipsis; white-space: nowrap; overflow: hidden;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam magna ex, euismod ultrices leo nec, hendrerit laoreet felis. Suspendisse in est at mauris maximus blandit. Vestibulum vehicula tincidunt nisi, et hendrerit risus porta vitae. Quisque eleifend commodo iaculis. Nam vestibulum, erat a lobortis luctus, ex mauris ultrices turpis, et fermentum turpis ipsum sed dui. Vivamus tincidunt quam ipsum, sit amet efficitur dolor volutpat vitae. Vestibulum ac lobortis enim. Sed a dolor vitae est gravida vestibulum. Nam nec enim non quam maximus pretium. Praesent at pellentesque lectus. Phasellus quis luctus ante, vel consequat lacus. Proin laoreet dignissim ante, pellentesque lacinia ligula maximus at. Etiam turpis dolor, feugiat vitae finibus sed, volutpat ac est. Nunc varius odio eu lectus pharetra, nec molestie libero egestas. Proin tempor venenatis arcu, at pharetra nunc congue et.
-      </p>
+      <p style="text-overflow:ellipsis; white-space: nowrap; overflow: hidden;">{{ video.description }}</p>
     </div>
   </a>
 </div>
