@@ -13,7 +13,7 @@ gulp.task('server', ['watch'], function() {
 });
 
 gulp.task('html', function () {
-  gulp.src('./app/*.html')
+  gulp.src('./app/views/**/*.html')
     .pipe(connect.reload());
 });
 
@@ -27,7 +27,7 @@ gulp.task('scss', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['./app/views/*.html'], ['html']);
+  gulp.watch(['./app/views/**/*.html'], ['html']);
   gulp.watch(['./app/styles/scss/**/*.scss'], ['scss']);
 });
 
