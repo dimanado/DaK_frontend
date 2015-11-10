@@ -42,11 +42,11 @@
 <div class="list-group">
   <a ui-sref="applicationLayout.homeLayout.currentVideo({id: {{ video.id }} })" class="list-group-item row" ng-repeat=" video in video.videos ">
     <div class="col-md-4 video-picture row">
-      <img style="width: 200px; height: 100px" src="http://girldasha.ucoz.ru/_ph/1/426131931.jpg">
+      <img src="http://girldasha.ucoz.ru/_ph/1/426131931.jpg">
     </div>
     <div class="col-md-8 video-description">
       <h3 data-ng-bind="video.name"></h3>
-      <p style="text-overflow:ellipsis; white-space: nowrap; overflow: hidden;">{{ video.description }}</p>
+      <p>{{ video.description }}</p>
     </div>
   </a>
 </div>

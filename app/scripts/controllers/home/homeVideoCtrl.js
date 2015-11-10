@@ -52,7 +52,8 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload, Video, Subscri
   function upload (file) {
     Upload.upload({
       url: ENV.apiEndpoint + "/video/",
-      data: {file: file, 'id_course': $stateParams.id, 'name': vm.name,'description': vm.description},
+      data: { file: file, 'id_course': $stateParams.id,
+              'name': vm.name,'description': vm.description },
       method: 'POST'
     }).then(function (resp) {
       vm.getVideos();
