@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/dimanado/DaK_frontend/issues"
   },
-  "homepage": "https://github.com/dimanado/DaK_frontend#readme"
+  "homepage": "https://github.com/dimanado/DaK_frontend#readme",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
 }

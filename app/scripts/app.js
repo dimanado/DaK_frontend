@@ -15,6 +15,11 @@ angular
 
     function ($stateProvider, $urlRouterProvider, ENV, $authProvider) {
       $stateProvider
+        .state('applicationLayout', {
+          abstract: true,
+          templateUrl: 'views/applicationLayout.html',
+          controller: 'LayoutCtrl as layout'
+        })
         .state('applicationLayout.registration', {
           url: '/sign_up',
           templateUrl: 'views/registration.html',
@@ -25,21 +30,22 @@ angular
           templateUrl: 'views/authentication.html',
           controller: 'AuthCtrl as auth'
         })
-        .state('applicationLayout.currentVideo', {
-          url: '/currentVideo/:id',
-          templateUrl: 'views/video.html',
-          controller: 'homeVideoCtrl as video'
-        })
-        .state('applicationLayout', {
-          abstract: true,
-          templateUrl: 'views/applicationLayout.html',
-          controller: 'LayoutCtrl as layout'
-        })
         .state('applicationLayout.courses', {
           url: '/courses',
           templateUrl: 'views/courses.html',
           controller: 'CoursesCtrl as courses'
         })
+        .state('applicationLayout.videos', {
+          url: '/course/:id/videos',
+          templateUrl: 'views/videos.html',
+          controller: 'homeVideoCtrl as video'
+        })
+        .state('applicationLayout.video', {
+          url: '/video/:id',
+          templateUrl: 'views/currentVideo.html',
+          controller: 'CurrentVideoCtrl as video'
+        })
+
         .state('applicationLayout.homeLayout', {
           abstract: true,
           templateUrl: 'views/home/homeLayout.html',
@@ -50,26 +56,20 @@ angular
           }
         })
         .state('applicationLayout.homeLayout.home', {
-          url: '/home',
+          url: '/home/profile',
           templateUrl: 'views/home/home.html'
           //controller: 'CoursesCtrl as courses'
         })
         .state('applicationLayout.homeLayout.myCourses', {
-          url: '/home/myCourses',
+          url: '/home/Courses',
           templateUrl: 'views/home/myCourses.html',
           controller: 'HomeCourseCtrl as course'
         })
         .state('applicationLayout.homeLayout.video', {
-          url: '/home/myVideo/:id',
-          templateUrl: 'views/home/myVideo.html',
+          url: '/home/course/:id/videos',
+          templateUrl: 'views/home/myVideos.html',
           controller: 'homeVideoCtrl as video'
-        })
-        .state('applicationLayout.homeLayout.currentVideo', {
-          url: '/home/currentVideo/:id',
-          templateUrl: 'views/home/currentVideo.html',
-          controller: 'homeCurrentVideoCtrl as video'
         });
-
 
       function checkAuthenticationAndLogout($auth, $state) {
         $auth.validateUser().then(function(data) {

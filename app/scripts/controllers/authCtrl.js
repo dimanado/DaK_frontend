@@ -3,10 +3,13 @@ angular
   .controller('AuthCtrl', AuthCtrl);
 
   AuthCtrl.$inject = [
-    'ENV', '$scope', '$state', '$auth', '$location', 'User', '$rootScope'
+    'ENV', '$scope', '$state', '$auth', '$location',
+    'User', '$rootScope'
   ];
 
-  function AuthCtrl (ENV, $scope, $state, $auth, $location, User, $rootScope) {
+  function AuthCtrl (ENV, $scope, $state, $auth, $location,
+                     User, $rootScope)
+  {
     console.log('AuthCtrl load');
     var vm = this;
 

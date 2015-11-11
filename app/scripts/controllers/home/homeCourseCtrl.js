@@ -20,7 +20,7 @@ function HomeCourseCtrl(ENV, $scope, $state, Course) {
 
   function changeVisible() {
     console.log('changeVisible');
-    vm.visible = vm.visible ? false : true ; // это ведь итак boolean. vm.visible = !vm.visible;
+    vm.visible = !vm.visible;
   }
 
   function createCourse() {

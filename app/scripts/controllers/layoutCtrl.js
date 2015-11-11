@@ -57,7 +57,7 @@ function LayoutCtrl(ENV, $scope, $state, $auth) {
       .then(function(resp) {
         console.log('success');
         $state.go('applicationLayout.courses');
-        window.localStorage.removeItem('status')
+        window.localStorage.removeItem('status');
         validateUser();
         userName();
       })
@@ -77,13 +77,8 @@ function LayoutCtrl(ENV, $scope, $state, $auth) {
   };
 
   function checkRole(checkStr){
-    //return vm.userRoleMas == checkStr;
-    var returnBool = false;
-    vm.userRoleMas.forEach(function(item) {
-      if(checkStr === item.name)
-        returnBool = true;
-    });
-    return returnBool
+    return (_.pluck(vm.userRoleMas, 'name'))
+      .indexOf(checkStr) == -1 ? false : true;
   }
 
 

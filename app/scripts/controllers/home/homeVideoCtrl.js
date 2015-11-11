@@ -3,10 +3,12 @@ angular
   .controller('homeVideoCtrl', homeVideoCtrl);
 
 homeVideoCtrl.$inject = [
-  'ENV', '$scope', '$state', '$stateParams', 'Upload', 'Video', 'Subscription'
+  'ENV', '$scope', '$state', '$stateParams', 'Upload',
+  'Video', 'Subscription'
 ];
 
-function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload, Video, Subscription) {
+function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload,
+                       Video, Subscription) {
   console.log('homeVideoCtrl load');
 
   var vm = this;
@@ -57,12 +59,14 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload, Video, Subscri
       method: 'POST'
     }).then(function (resp) {
       vm.getVideos();
-      console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+      console.log('Success ' + resp.config.data.file.name +
+      'uploaded. Response: ' + resp.data);
     }, function (resp) {
       console.log('Error status: ' + resp.status);
     }, function (evt) {
       file.progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-      console.log('progress: ' + file.progressPercentage + '% ' + evt.config.data.file.name);
+      console.log('progress: ' + file.progressPercentage + '% '
+      + evt.config.data.file.name);
     });
   };
 

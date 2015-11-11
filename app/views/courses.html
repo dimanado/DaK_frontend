@@ -1,7 +1,7 @@
 <div id="courses" class="container">
   <div class="row">
     <div class="col-xs-4" ng-repeat=" course in courses.courses ">
-      <a ui-sref="applicationLayout.currentVideo({id: {{ course.id }} })" class="link_to_course">
+      <a ui-sref="applicationLayout.videos({id: {{ course.id }} })" class="link_to_course">
         <div class="panel panel-default">
           <div class="panel-heading title">
             {{ course.name }}

@@ -1,13 +1,13 @@
 angular
   .module('Dak.controllers')
-  .controller('homeCurrentVideoCtrl', homeCurrentVideoCtrl);
+  .controller('CurrentVideoCtrl', CurrentVideoCtrl);
 
-homeCurrentVideoCtrl.$inject = [
+CurrentVideoCtrl.$inject = [
   'ENV', '$scope', '$state', 'Video', '$stateParams', '$sce'
 ];
 
-function homeCurrentVideoCtrl(ENV, $scope, $state, Video, $stateParams, $sce) {
-  console.log('homeCurrentVideoCtrl load');
+function CurrentVideoCtrl(ENV, $scope, $state, Video, $stateParams, $sce) {
+  console.log('CurrentVideoCtrl load');
   var vm = this;
 
   vm.video = undefined;
@@ -19,12 +19,12 @@ function homeCurrentVideoCtrl(ENV, $scope, $state, Video, $stateParams, $sce) {
     Video.get({id:  $stateParams.id}).$promise
       .then(function(data) {
         vm.video = data.video;
-        vm.config = { 
-          sources: [ { 
+        vm.config = {
+          sources: [ {
             src: $sce.trustAsResourceUrl(ENV.apiEndpoint + data.video.url),
-            type: data.video.format 
+            type: data.video.format
           } ]
-        }; // пробелы норм ставь. и строки не делай длинные
+        };
       })
       .catch(function() {
         console.log('courses load error');
