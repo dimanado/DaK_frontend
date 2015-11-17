@@ -81,7 +81,10 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload,
   function subscriptionStatus() {
     Subscription.get({id:  $stateParams.id, str: 'check_status'}).$promise
       .then(function(data) {
-        vm.isSubscribe = true;
+        if(data.success === true)
+          vm.isSubscribe = true;
+        else
+          vm.isSubscribe = false;
       })
       .catch(function() {
         vm.isSubscribe = false;
