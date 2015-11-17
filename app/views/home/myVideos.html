@@ -46,16 +46,26 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="list-group col-md-9">
+    <a ui-sref="applicationLayout.video({id: {{ video.id }} })" class="list-group-item row" ng-repeat=" video in video.videos ">
+      <div class="col-md-4 video-picture row">
+        <img ng-src = {{video.image}}>
+      </div>
+      <div class="col-md-8 video-description">
+        <h3 data-ng-bind="video.name"></h3>
+        <p>{{ video.description }}</p>
+      </div>
+    </a>
+  </div>
 
-<div class="list-group">
-  <a ui-sref="applicationLayout.video({id: {{ video.id }} })" class="list-group-item row" ng-repeat=" video in video.videos ">
-    <div class="col-md-4 video-picture row">
-      <img ng-src = {{video.image}}>
+  <div class="col-md-3 ">
+    <div class="thumbnail">
+      <img ng-src={{video.meta.image}}>
+      <div class="caption">
+        <h3>{{video.meta.name}}</h3>
+        <p>{{video.meta.description}}</p>
+      </div>
     </div>
-    <div class="col-md-8 video-description">
-      <h3 data-ng-bind="video.name"></h3>
-      <p>{{ video.description }}</p>
-    </div>
-  </a>
+  </div>
 </div>
-

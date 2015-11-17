@@ -25,18 +25,6 @@ function HomeCourseCtrl(ENV, $scope, $state, Course, Upload) {
     vm.visible = !vm.visible;
   }
 
-  //function createCourse() {
-  //  console.log('createCourse');
-  //  Course.save({name: vm.nameCourse}).$promise
-  //    .then(function(data) {
-  //      console.log('success');
-  //      getCourses();
-  //    })
-  //    .catch(function(data) {
-  //      console.log('failure ' + data);
-  //    });
-  //}
-
   function createCourse() {
 
     if (vm.course.photo && !vm.course.photo.$error) {
@@ -47,7 +35,7 @@ function HomeCourseCtrl(ENV, $scope, $state, Course, Upload) {
   function upload (course) {
     Upload.upload({
       url: ENV.apiEndpoint + "/courses/",
-      data: { 'image': course.photo, 'name': course.name },
+      data: { 'image': course.photo, 'name': course.name, 'description': course.description},
       method: 'POST'
     }).then(function (resp) {
       getCourses();

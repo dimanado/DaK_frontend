@@ -17,6 +17,7 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload,
   vm.videos = undefined;
   vm.visible = false;
   vm.isSubscribe = undefined;
+  vm.meta = undefined;
 
   vm.submit = submit;
   vm.upload = upload;
@@ -37,6 +38,7 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload,
     Video.get({ id_course:  $stateParams.id }).$promise
       .then(function(data) {
         vm.videos = data.video;
+        vm.meta = data.meta;
       })
       .catch(function() {
         console.log('courses load error');

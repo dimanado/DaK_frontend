@@ -9,6 +9,10 @@
             <input type="text" class="form-control" placeholder="course" ng-model="course.course.name">
           </div>
           <div class="form-group">
+            <label for="">Description</label>
+            <textarea name="description" placeholder="description" class="form-control" ng-model="course.course.description" size="31" required></textarea>
+          </div>
+          <div class="form-group">
             <p for=""><strong>Image</strong></p>
             <div class="btn btn-default " ngf-select ng-model="course.course.photo" name="photo"
                  ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB" required>Select</div>
