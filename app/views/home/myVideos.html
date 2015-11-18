@@ -50,7 +50,7 @@
   <div class="list-group col-md-9">
     <a ui-sref="applicationLayout.video({id: {{ video.id }} })" class="list-group-item row" ng-repeat=" video in video.videos ">
       <div class="col-md-4 video-picture row">
-        <img ng-src = {{video.image}}>
+        <img style="width: 100%;" ng-src = {{video.image}}>
       </div>
       <div class="col-md-8 video-description">
         <h3 data-ng-bind="video.name"></h3>

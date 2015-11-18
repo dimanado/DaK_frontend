@@ -8,11 +8,12 @@
     </div>
   </div>
 
+
   <div class="row">
     <div class="list-group col-md-9">
       <a ui-sref="applicationLayout.video({id: {{ video.id }} })" class="list-group-item row" ng-repeat=" video in video.videos ">
         <div class="col-md-4 video-picture row">
-          <img ng-src = {{video.image}}>
+          <img style="width: 100%;" ng-src = {{video.image}}>
         </div>
         <div class="col-md-8 video-description">
           <h3 data-ng-bind="video.name"></h3>
@@ -22,6 +23,7 @@
     </div>
 
     <div class="col-md-3 ">
+  
       <div class="thumbnail">
         <img ng-src={{video.meta.image}}>
         <div class="caption">
@@ -29,7 +31,24 @@
           <p>{{video.meta.description}}</p>
         </div>
       </div>
+
+      <div ng-if="video.isSubscribe" class="panel panel-default">
+        <div class="panel-heading">Chat</div>
+        <div class="panel-body">
+          <ul class="list-group">
+            <li  ng-repeat="message in video.messages"
+                 class="list-group-item" data-ng-bind="message.text">
+            </li>
+          </ul>
+          <div>
+            <form ng-data-submit="sendMessage()">
+              <input class="form-control" type="text" />
+              <button class="btn btn-default" type="button">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
-
 </div>

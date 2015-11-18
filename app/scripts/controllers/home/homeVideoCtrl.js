@@ -26,6 +26,8 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload,
   vm.subscribeCourse = subscribeCourse;
   vm.subscriptionStatus = subscriptionStatus;
 
+  vm.messages = [{text: "fas"}, {text: "fasgf"}]
+
   getVideos();
   subscriptionStatus();
 

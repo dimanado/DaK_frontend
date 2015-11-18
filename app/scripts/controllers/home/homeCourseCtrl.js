@@ -18,6 +18,7 @@ function HomeCourseCtrl(ENV, $scope, $state, Course, Upload) {
   vm.createCourse = createCourse;
   vm.getCourses = getCourses;
   vm.upload = upload;
+
   getCourses();
 
   function changeVisible() {
