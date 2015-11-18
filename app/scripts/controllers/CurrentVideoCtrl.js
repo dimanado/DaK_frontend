@@ -21,7 +21,7 @@ function CurrentVideoCtrl(ENV, $scope, $state, Video, $stateParams, $sce) {
         vm.video = data.video;
         vm.config = {
           sources: [ {
-            src: $sce.trustAsResourceUrl(ENV.apiEndpoint + data.video.url),
+            src: $sce.trustAsResourceUrl(data.video.url),
             type: data.video.format
           } ]
         };

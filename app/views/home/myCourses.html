@@ -3,11 +3,25 @@
     <div class="row">
       <div class="col-md-8">
         <div class="form-group"><button class="btn btn-default" ng-click="course.changeVisible()" >Add course</button></div>
-        <form class="form-inline" role="form" ng-show="course.visible" data-ng-submit="course.createCourse()">
+        <form role="form" ng-show="course.visible" data-ng-submit="course.createCourse()" name="courseForm">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="course" ng-model="course.nameCourse">
+            <label for="">Course name</label>
+            <input type="text" class="form-control" placeholder="course" ng-model="course.course.name">
           </div>
-          <button type="submit" class="btn btn-default">Add</button>
+          <div class="form-group">
+            <label for="">Description</label>
+            <textarea name="description" placeholder="description" class="form-control" ng-model="course.course.description" size="31" required></textarea>
+          </div>
+          <div class="form-group">
+            <p for=""><strong>Image</strong></p>
+            <div class="btn btn-default " ngf-select ng-model="course.course.photo" name="photo"
+                 ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB" required>Select</div>
+            <label for="" ng-show="courseForm.photo.$error.required">*required</label>
+            <label for="" ng-show="course.course.photo">{{ course.course.photo.name }} </label>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-default">Add</button>
+          </div>
         </form>
       </div>
     </div>
@@ -21,7 +35,7 @@
             {{ course.name }}
           </div>
           <div class="panel-body content">
-            <img class="content" src="http://files8.adme.ru/files/news/part_33/334805/cats5.jpg" />
+            <img class="content" ng-src = {{course.image}} />
           </div>
         </div>
       </a>

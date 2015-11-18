@@ -13,12 +13,11 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload,
 
   var vm = this;
 
-  vm.file = undefined;
-  vm.name = undefined;
+  vm.video = undefined;
   vm.videos = undefined;
   vm.visible = false;
   vm.isSubscribe = undefined;
-  vm.description = undefined;
+  vm.meta = undefined;
 
   vm.submit = submit;
   vm.upload = upload;
@@ -39,6 +38,7 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload,
     Video.get({ id_course:  $stateParams.id }).$promise
       .then(function(data) {
         vm.videos = data.video;
+        vm.meta = data.meta;
       })
       .catch(function() {
         console.log('courses load error');
@@ -46,16 +46,17 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload,
   }
 
   function submit() {
-    if (vm.file && !vm.file.$error) {
-      vm.upload(vm.file);
+    if (vm.video.file && !vm.video.file.$error) {
+      vm.upload(vm.video);
     }
   };
 
-  function upload (file) {
+  function upload (video) {
     Upload.upload({
       url: ENV.apiEndpoint + "/video/",
-      data: { file: file, 'id_course': $stateParams.id,
-              'name': vm.name,'description': vm.description },
+      data: { 'file': video.file, 'id_course': $stateParams.id,
+              'name': video.name,'description': video.description,
+              'image': video.photo },
       method: 'POST'
     }).then(function (resp) {
       vm.getVideos();
@@ -64,8 +65,8 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload,
     }, function (resp) {
       console.log('Error status: ' + resp.status);
     }, function (evt) {
-      file.progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-      console.log('progress: ' + file.progressPercentage + '% '
+      video.file.progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+      console.log('progress: ' + video.file.progressPercentage + '% '
       + evt.config.data.file.name);
     });
   };
@@ -82,7 +83,10 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload,
   function subscriptionStatus() {
     Subscription.get({id:  $stateParams.id, str: 'check_status'}).$promise
       .then(function(data) {
-        vm.isSubscribe = true;
+        if(data.success === true)
+          vm.isSubscribe = true;
+        else
+          vm.isSubscribe = false;
       })
       .catch(function() {
         vm.isSubscribe = false;

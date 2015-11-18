@@ -1,4 +1,4 @@
-<div class="video-play col-md-8 col-md-offset-2">
+<div class="video-play col-md-8 col-md-offset-1">
   <videogular>
     <vg-media vg-src="video.config.sources">
     </vg-media>
@@ -19,4 +19,13 @@
 
     <vg-overlay-play></vg-overlay-play>
   </videogular>
+</div>
+<div class="col-md-3 ">
+  <div class="thumbnail">
+    <img ng-src={{video.video.image}}>
+    <div class="caption">
+      <h3>{{video.video.name}}</h3>
+      <p>{{video.video.description}}</p>
+    </div>
+  </div>
 </div>
