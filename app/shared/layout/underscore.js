@@ -1,5 +1,5 @@
 angular
-  .module('Dak.services')
+  .module('Layout')
   .factory('_', ['$window', function($window) {
     return $window._;
   }]);

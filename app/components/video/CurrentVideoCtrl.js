@@ -1,5 +1,5 @@
 angular
-  .module('Dak.controllers')
+  .module('Video')
   .controller('CurrentVideoCtrl', CurrentVideoCtrl);
 
 CurrentVideoCtrl.$inject = [

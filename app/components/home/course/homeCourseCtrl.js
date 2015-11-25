@@ -1,5 +1,5 @@
 angular
-  .module('Dak.controllers')
+  .module('Home:Course', [])
   .controller('HomeCourseCtrl', HomeCourseCtrl);
 
 HomeCourseCtrl.$inject = [

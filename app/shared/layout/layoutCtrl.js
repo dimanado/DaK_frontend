@@ -1,5 +1,5 @@
 angular
-  .module('Dak.controllers')
+  .module('Layout', [])
   .controller('LayoutCtrl', LayoutCtrl);
 
 LayoutCtrl.$inject = [

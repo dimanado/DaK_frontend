@@ -2,11 +2,10 @@
 
 angular
   .module('Dak', [
-    'config', 'Dak.controllers',
-    'ngAnimate', 'ngCookies', 'ngResource',
-    'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router', 'Dak.services','ngFileUpload',
-    "com.2fdevs.videogular",
-    "com.2fdevs.videogular.plugins.controls",
+    'config', 'ngAnimate', 'ngCookies', 'ngResource', 'Auth', 'Layout',
+    'Home:Course', 'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router',
+    'ngFileUpload', "com.2fdevs.videogular", 'Home:Video', 'Video',
+    'Course', "com.2fdevs.videogular.plugins.controls",
     "com.2fdevs.videogular.plugins.overlayplay",
     "com.2fdevs.videogular.plugins.poster"
   ])
