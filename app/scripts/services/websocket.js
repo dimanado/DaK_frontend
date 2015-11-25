@@ -1,12 +1,13 @@
-angular.module('Bookt.services')
-  .factory('WebSocket', ['$stateParams'
+angular.module('Dak.services')
+  .factory('WebSocket', ['$stateParams',
     function($stateParams) {
-      var socket, channels = {};
+      var socket, channels = {}, callback;
 
       return {
         start: start,
         disconnect: disconnect,
-        trigger: trigger
+        trigger: trigger,
+        setCallback: setCallback
       };
 
       function chatChannel() {
@@ -15,7 +16,7 @@ angular.module('Bookt.services')
 
       function openWebSocket() {
         console.log('opening websocket');
-        socket = new WebSocketRails('localhost:3000/websocket');
+        socket = new WebSocketRails('localhost:3001/websocket');
       }
 
 
@@ -28,7 +29,7 @@ angular.module('Bookt.services')
 
    
       function resolveMessage(message) {
-        
+        callback(message.text);
       }
 
     
@@ -58,7 +59,7 @@ angular.module('Bookt.services')
 
       function start() {
         openWebSocket();
-        bindTo(chatChannel(), 'create', resolveMessage())
+        bindTo(chatChannel(), 'message.create', resolveMessage)
       }
 
       function disconnect() {
@@ -71,5 +72,8 @@ angular.module('Bookt.services')
         get().trigger(event_name, data, success_callback, failure_callback);
       }
 
-    }]
-  );
+      function setCallback(clb) {
+        callback = clb;
+      }
+    }
+  ]);

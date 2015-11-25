@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Chat</div>
+  <div class="panel-body">
+    
+    <ul class="list-group" style="max-height: 150px; overflow-y: scroll">
+      <li  ng-repeat="message in messages"
+           class="list-group-item" ng-bind="message.text">
+      </li>
+    </ul>
+
+    <div>
+      <form ng-submit="submitMessage(message)">
+        <input class="form-control" ng-model="message.text" type="text" />
+        <button class="btn btn-default" type="submit" ng-click="message.text = ''" >Send</button>
+      </form>
+    </div>
+
+  </div>
+</div>
