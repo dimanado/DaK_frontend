@@ -1,5 +1,5 @@
 angular
-  .module('Dak.controllers')
+  .module('Course', [])
   .controller('CoursesCtrl', CoursesCtrl);
 
   CoursesCtrl.$inject = [
@@ -9,7 +9,7 @@ angular
   function CoursesCtrl(ENV, $scope, $state, Course) {
     console.log('CoursesCtrl load');
     var vm = this;
-    vm.getCourses = getCourses
+    vm.getCourses = getCourses;
     vm.courses = undefined;
     getCourses();
 

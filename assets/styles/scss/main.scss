@@ -24,7 +24,19 @@
   }
 }
 
-.video-description {
+.panel-heading {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+.item-description {
+  h3 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden
+  }
   p {
     text-overflow: ellipsis;
     white-space: nowrap;

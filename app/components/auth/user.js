@@ -1,5 +1,5 @@
 angular
-  .module('Dak.services')
+  .module('Auth')
   .factory('User', ['$resource' ,'ENV', function($resource, ENV) {
     return $resource(ENV.apiEndpoint + "/users/:id",
       {

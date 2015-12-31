@@ -1,5 +1,5 @@
 angular
-  .module('Dak.controllers', [])
+  .module('Auth', [])
   .controller('AuthCtrl', AuthCtrl);
 
   AuthCtrl.$inject = [

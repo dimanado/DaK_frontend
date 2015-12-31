@@ -2,11 +2,10 @@
 
 angular
   .module('Dak', [
-    'config', 'Dak.controllers',
-    'ngAnimate', 'ngCookies', 'ngResource',
-    'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router', 'Dak.services','ngFileUpload',
-    "com.2fdevs.videogular",
-    "com.2fdevs.videogular.plugins.controls",
+    'config', 'ngAnimate', 'ngCookies', 'ngResource', 'Auth', 'Layout',
+    'Home:Course', 'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router',
+    'ngFileUpload', "com.2fdevs.videogular", 'Home:Video', 'Video',
+    'Course', "com.2fdevs.videogular.plugins.controls",
     "com.2fdevs.videogular.plugins.overlayplay",
     "com.2fdevs.videogular.plugins.poster"
   ])
@@ -17,38 +16,38 @@ angular
       $stateProvider
         .state('applicationLayout', {
           abstract: true,
-          templateUrl: 'views/applicationLayout.html',
+          templateUrl: 'shared/layout/applicationLayout.html',
           controller: 'LayoutCtrl as layout'
         })
         .state('applicationLayout.registration', {
           url: '/sign_up',
-          templateUrl: 'views/registration.html',
+          templateUrl: 'components/auth/registration.html',
           controller: 'AuthCtrl as auth'
         })
         .state('applicationLayout.authentication', {
           url: '/sign_in',
-          templateUrl: 'views/authentication.html',
+          templateUrl: 'components/auth/authentication.html',
           controller: 'AuthCtrl as auth'
         })
         .state('applicationLayout.courses', {
           url: '/courses',
-          templateUrl: 'views/courses.html',
+          templateUrl: 'components/course/courses.html',
           controller: 'CoursesCtrl as courses'
         })
         .state('applicationLayout.videos', {
           url: '/course/:id/videos',
-          templateUrl: 'views/videos.html',
+          templateUrl: 'components/video/videos.html',
           controller: 'homeVideoCtrl as video'
         })
         .state('applicationLayout.video', {
           url: '/video/:id',
-          templateUrl: 'views/currentVideo.html',
+          templateUrl: 'components/video/currentVideo.html',
           controller: 'CurrentVideoCtrl as video'
         })
 
         .state('applicationLayout.homeLayout', {
           abstract: true,
-          templateUrl: 'views/home/homeLayout.html',
+          templateUrl: 'components/home/layout/homeLayout.html',
           resolve: {
             login: function($auth, $state) {
               checkAuthenticationAndLogout($auth, $state);
@@ -57,17 +56,17 @@ angular
         })
         .state('applicationLayout.homeLayout.home', {
           url: '/home/profile',
-          templateUrl: 'views/home/home.html'
+          templateUrl: 'components/home/profile/home.html'
           //controller: 'CoursesCtrl as courses'
         })
         .state('applicationLayout.homeLayout.myCourses', {
           url: '/home/Courses',
-          templateUrl: 'views/home/myCourses.html',
+          templateUrl: 'components/home/course/myCourses.html',
           controller: 'HomeCourseCtrl as course'
         })
         .state('applicationLayout.homeLayout.video', {
           url: '/home/course/:id/videos',
-          templateUrl: 'views/home/myVideos.html',
+          templateUrl: 'components/home/video/myVideos.html',
           controller: 'homeVideoCtrl as video'
         });
 
