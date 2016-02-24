@@ -2,7 +2,7 @@
 
 angular
   .module('Dak', [
-    'config', 'ngAnimate', 'ngCookies', 'ngResource', 'Auth', 'Layout',
+    'config', 'ngAnimate', 'ngCookies', 'ngMessages', 'ngPassword', 'ngResource', 'Auth', 'Layout',
     'Home:Course', 'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router',
     'ngFileUpload', "com.2fdevs.videogular", 'Home:Video', 'Video',
     'Course', "com.2fdevs.videogular.plugins.controls",

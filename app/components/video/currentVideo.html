@@ -27,5 +27,9 @@
       <h3>{{video.video.name}}</h3>
       <p>{{video.video.description}}</p>
     </div>
+    <div class="panel-body">
+      <button class="fa fa-thumbs-up" ng-click="video.vote('like')">{{ video.video.like_size }}</button>
+      <button class="fa fa-thumbs-down" ng-click="video.vote('dislike')">{{ video.video.dislike_size }}</button>
+    </div>
   </div>
 </div>

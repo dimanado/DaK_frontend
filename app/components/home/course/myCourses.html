@@ -28,14 +28,14 @@
   </div>
 
   <div class="row">
-    <div class="col-md-4" ng-repeat="course in course.courses ">
-      <a ui-sref="applicationLayout.homeLayout.video({id: {{ course.id }} })" class="link_to_course">
+    <div class="col-md-4" ng-repeat="item in course.courses ">
+      <a ui-sref="applicationLayout.homeLayout.video({id: {{ item.id }} })" class="link_to_course">
         <div class="panel panel-default">
           <div class="panel-heading title">
-            {{ course.name }}
+            {{ item.name }}
           </div>
           <div class="panel-body content">
-            <img class="content" ng-src = {{course.image}} />
+            <img class="content" ng-src = {{item.image}} />
           </div>
         </div>
       </a>

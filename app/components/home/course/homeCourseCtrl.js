@@ -49,7 +49,6 @@ function HomeCourseCtrl(ENV, $scope, $state, Course, Upload) {
     Course.get().$promise
       .then(function(data) {
         vm.courses = data.courses;
-
       })
       .catch(function() {
         console.log('courses load error');

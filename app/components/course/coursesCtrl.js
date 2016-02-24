@@ -22,4 +22,5 @@ angular
           console.log('courses load error');
         });
     }
+
   }

@@ -1,4 +1,4 @@
-angular
+    angular
   .module('Auth', [])
   .controller('AuthCtrl', AuthCtrl);
 

@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/dimanado/DaK_frontend#readme",
   "dependencies": {
+    "angular-messages": "^1.4.9",
     "underscore": "^1.8.3"
   }
 }
