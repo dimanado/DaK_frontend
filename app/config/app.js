@@ -3,7 +3,7 @@
 angular
   .module('Dak', [
     'config', 'ngAnimate', 'ngCookies', 'ngMessages', 'ngPassword', 'ngResource', 'Auth', 'Layout',
-    'Home:Course', 'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router',
+    'Home:Course', 'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router', 'ui.bootstrap.popover',
     'ngFileUpload', "com.2fdevs.videogular", 'Home:Video', 'Video',
     'Course', "com.2fdevs.videogular.plugins.controls",
     "com.2fdevs.videogular.plugins.overlayplay",
