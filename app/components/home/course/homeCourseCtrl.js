@@ -35,7 +35,7 @@ function HomeCourseCtrl(ENV, $scope, $state, Course, Upload) {
   function upload (course) {
     Upload.upload({
       url: ENV.apiEndpoint + "/courses/",
-      data: { 'image': course.photo, 'name': course.name, 'description': course.description},
+      data: { 'image': course.photo, 'name': course.name, 'description': course.description, 'tasks': course.tasks},
       method: 'POST'
     }).then(function (resp) {
       getCourses();

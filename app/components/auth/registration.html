@@ -11,6 +11,11 @@
             <p ng-message="required">Email is required.</p>
             <p ng-message="email">Your email is invalid</p>
           </div>
+          <div class ="form-group"> <input type="text" name="userNickname" placeholder="Nickname" ng-model="auth.credentials.nickname" class="form-control" required></div>
+          <div class="help-block" ng-messages="reg.userNickname.$error" ng-show="reg.userNickname.$touched">
+            <p ng-message="required">Nickname is required.</p>
+            <p ng-message="text">Your nickname is invalid</p>
+          </div>
           <div class ="form-group"><input type="password" name="userPassword" placeholder="Password" ng-model="auth.credentials.password" ng-minlength="5" ng-maxlength="10" required class="form-control">
             <div class="help-block" ng-messages="reg.userPassword.$error" ng-show="reg.userPassword.$touched">
               <p ng-message="minlength">Password is too short.</p>

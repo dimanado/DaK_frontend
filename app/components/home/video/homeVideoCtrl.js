@@ -4,13 +4,11 @@ angular
 
 homeVideoCtrl.$inject = [
   'ENV', '$scope', '$state', '$stateParams', 'Upload',
-  'Video', 'Subscription'
+  'Video', 'Subscription', 'Task'
 ];
 
 function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload,
                        Video, Subscription) {
-  console.log('homeVideoCtrl load');
-
   var vm = this;
 
   vm.video = undefined;
@@ -92,6 +90,5 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload,
         vm.isSubscribe = false;
       });
   }
-
 }
 

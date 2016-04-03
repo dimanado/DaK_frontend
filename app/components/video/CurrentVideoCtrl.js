@@ -9,9 +9,9 @@ CurrentVideoCtrl.$inject = [
 function CurrentVideoCtrl(ENV, $scope, $state, Video, $stateParams, $sce, Vote) {
   console.log('CurrentVideoCtrl load');
   var vm = this;
-
   vm.video = undefined;
   vm.config = undefined;
+
   vm.vote = vote;
   getVideo();
 
@@ -33,7 +33,7 @@ function CurrentVideoCtrl(ENV, $scope, $state, Video, $stateParams, $sce, Vote) 
 
   function vote(vote_type) {
     var status = JSON.parse(window.localStorage['status'] || '{}');
-    Vote.charge({id: $stateParams.id, user_email: status.name, type: vote_type}).$promise
+    Vote.charge({id: $stateParams.id, user_email: status.name, vote_type: vote_type, item_type: 'video'}).$promise
       .then(function(data) {
         vm.video = data.vote_video;
       })
@@ -42,3 +42,4 @@ function CurrentVideoCtrl(ENV, $scope, $state, Video, $stateParams, $sce, Vote) 
       });
   }
 }
+

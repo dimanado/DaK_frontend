@@ -4,7 +4,7 @@ angular
   .module('Dak', [
     'config', 'ngAnimate', 'ngCookies', 'ngMessages', 'ngPassword', 'ngResource', 'Auth', 'Layout',
     'Home:Course', 'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router', 'ui.bootstrap.popover',
-    'ngFileUpload', "com.2fdevs.videogular", 'Home:Video', 'Video',
+    'ngFileUpload', "com.2fdevs.videogular", 'Home:Video', 'Video', 'Comment',
     'Course', "com.2fdevs.videogular.plugins.controls",
     "com.2fdevs.videogular.plugins.overlayplay",
     "com.2fdevs.videogular.plugins.poster"
@@ -44,7 +44,6 @@ angular
           templateUrl: 'components/video/currentVideo.html',
           controller: 'CurrentVideoCtrl as video'
         })
-
         .state('applicationLayout.homeLayout', {
           abstract: true,
           templateUrl: 'components/home/layout/homeLayout.html',

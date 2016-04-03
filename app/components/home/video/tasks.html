@@ -1,0 +1,21 @@
+<div class="form-group">
+  <button class="fa fa-plus" ng-hide="checkSender(video.meta.user_id)" ng-click="changeVisible()" ngf-select ng-model="tasks" ngf-multiple="true" name="file"
+          ngf-pattern=".pdf,.doc,.docx"
+          accept=".pdf,.doc,.docx"
+          ngf-max-size="20MB"></button>
+</div>
+<form role="form" ng-show="visible" data-ng-submit="upload(tasks, video.meta.course_id)" name="tasksForm">
+  <div class="form-group">
+    Files:
+    <ul>
+      <li ng-repeat="f in tasks">{{f.name}} {{f.$error}} {{f.$errorParam}}</li>
+    </ul>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-default">Add</button>
+  </div>
+</form>
+<div ng-repeat="task in video.meta.tasks">
+  <a ng-href="{{video.meta.domain}}{{task.file.url}}" target="_blank" download="{{task.name}}.{{task.format}}">Task {{$index+1}}</a>
+  <button class="fa fa-trash-o" ng-hide="checkSender(video.meta.user_id)" ng-click="deleteTask(task.id)"></button>
+</div>

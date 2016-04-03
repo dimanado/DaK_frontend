@@ -52,6 +52,7 @@
       User.get({id: 1 }).$promise
         .then(function(data) {
           var status = {
+            id: data.users.id,
             name: data.users.email,
             roles: data.users.roles
           };
