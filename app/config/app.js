@@ -37,7 +37,12 @@ angular
         .state('applicationLayout.videos', {
           url: '/course/:id/videos',
           templateUrl: 'components/video/videos.html',
-          controller: 'homeVideoCtrl as video'
+          controller: 'homeVideoCtrl as video',
+          resolve: {
+            login: function($auth, $state) {
+              checkAuthenticationAndLogout($auth, $state);
+            }
+          }
         })
         .state('applicationLayout.video', {
           url: '/video/:id',

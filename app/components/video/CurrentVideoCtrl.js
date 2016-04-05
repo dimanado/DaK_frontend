@@ -13,6 +13,7 @@ function CurrentVideoCtrl(ENV, $scope, $state, Video, $stateParams, $sce, Vote) 
   vm.config = undefined;
 
   vm.vote = vote;
+  vm.checkVoter = checkVoter;
   getVideo();
 
   function getVideo() {
@@ -40,6 +41,13 @@ function CurrentVideoCtrl(ENV, $scope, $state, Video, $stateParams, $sce, Vote) 
       .catch(function() {
         console.log('courses load error');
       });
+  }
+
+  function checkVoter(author_id) {
+    if (JSON.parse(window.localStorage['status']).id == author_id)
+      return true;
+    else
+      return false
   }
 }
 

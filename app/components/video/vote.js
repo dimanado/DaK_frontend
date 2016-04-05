@@ -31,6 +31,7 @@ angular
         }
 
         function checkSender(sender_comment_id) {
+
           if (JSON.parse(window.localStorage['status']).id == sender_comment_id)
             return false;
           else
