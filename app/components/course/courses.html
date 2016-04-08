@@ -1,10 +1,10 @@
 <div id="courses" class="container">
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-4">
       <label>Search:</label>
       <input type="text" class="form-control" placeholder="Course name" ng-model="query">
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-4">
       <label>Sort by:</label>
       <select class="form-control" ng-init="sortBy = 'none'" ng-model="sortBy">
         <option value="none">-- Select --</option>
@@ -12,9 +12,17 @@
         <option value="created_at">Date</option>
       </select>
     </div>
+    <div class="col-xs-4">
+      <label>Choose category:</label>
+      <select class="form-control" ng-model="courses.selectedCat">
+        <option value="">All</option>
+        <option ng-repeat="cat in courses.categories">{{cat.name}}</option>
+      </select>
+    </div>
   </div>
   <div class="row from-filters">
-    <div class="col-xs-4" ng-repeat=" item in courses.courses | filter:{name: query} | orderBy:sortBy">
+    <div class="col-xs-4" ng-repeat=" item in courses.courses | filter:
+    {name: query, categories: { name: courses.selectedCat }} | orderBy:sortBy">
       <a ui-sref="applicationLayout.videos({id: {{ item.id }} })" class="link_to_course">
         <div class="panel panel-default">
           <div class="panel-heading title">
@@ -22,6 +30,9 @@
           </div>
           <div class="panel-body">
             <img class="content" ng-src = {{item.image}} />
+          </div>
+          <div class="panel-body" ng-repeat="cat in item.categories" style="float:left">
+            <a href="javascript:void(0)" ng-click="courses.selectedCat = cat.name" class="button">{{cat.name}}</a>
           </div>
         </div>
       </a>

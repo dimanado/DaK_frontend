@@ -6,7 +6,7 @@
         <form role="form" ng-show="course.visible" data-ng-submit="course.createCourse()" name="courseForm">
           <div class="form-group">
             <label for="">Course name</label>
-            <input type="text" class="form-control" placeholder="course" ng-model="course.course.name">
+            <input type="text" class="form-control" placeholder="course" ng-model="course.course.name" required>
           </div>
           <div class="form-group">
             <label for="">Description</label>
@@ -24,14 +24,20 @@
             <div class="btn btn-default " ngf-select ng-model="course.course.tasks" ngf-multiple="true" name="file"
                  ngf-pattern=".pdf,.doc,.docx"
                  accept=".pdf,.doc,.docx"
-                 ngf-max-size="20MB">Select</div>
+                 ngf-max-size="20MB" required>Select</div>
             Files:
             <ul>
               <li ng-repeat="f in course.course.tasks">{{f.name}} {{f.$error}} {{f.$errorParam}}</li>
             </ul>
           </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-default">Add</button>
+            <label>Select categories:</label>
+            <select multiple class="form-control" ng-model="course.course.selectedCat" required>
+              <option ng-repeat="cat in course.categories" value="{{cat.id}}">{{cat.name}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <button type="submit" ng-disabled="!courseForm.$valid" class="btn btn-default">Add</button>
           </div>
         </form>
       </div>
@@ -47,6 +53,9 @@
           </div>
           <div class="panel-body content">
             <img class="content" ng-src = {{item.image}} />
+          </div>
+          <div class="panel-body" ng-repeat="cat in item.categories" style="float:left">
+            <a href="javascript:void(0)" ng-click="courses.selectedCat = cat.name" class="button">{{cat.name}}</a>
           </div>
         </div>
       </a>
