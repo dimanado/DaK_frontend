@@ -1,3 +1,23 @@
-<div class="container">
-<h1>Home</h1>
+<div id="profile" class="container" style="width:100%">
+  <div class="row">
+    <div class="col-md-8">
+      <form role="form" data-ng-submit="profile.updateProfile()" name="profileForm">
+        <div class="form-group">
+          <label for="">Email</label>
+          <input type="text" class="form-control" placeholder="email" ng-model="profile.user.email" required>
+        </div>
+        <div class="form-group">
+          <label for="">Nickname</label>
+          <textarea name="nickname" placeholder="nickname" class="form-control" ng-model="profile.user.nickname" size="31" required></textarea>
+        </div>
+        <!--<div class="form-group">-->
+          <!--<label for="">Password</label>-->
+          <!--<textarea name="password" placeholder="password" class="form-control" ng-model="user.password" size="31" required></textarea>-->
+        <!--</div>-->
+        <div class="form-group">
+          <button type="submit" ng-disabled="!profileForm.$valid" class="btn btn-default">update</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

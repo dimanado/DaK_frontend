@@ -18,6 +18,8 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload,
   vm.meta = undefined;
 
   vm.submit = submit;
+  vm.deleteVideo = deleteVideo;
+  vm.checkSender = checkSender;
   vm.upload = upload;
   vm.getVideos = getVideos;
   vm.changeVisible = changeVisible;
@@ -89,6 +91,25 @@ function homeVideoCtrl(ENV, $scope, $state, $stateParams, Upload,
       .catch(function() {
         vm.isSubscribe = false;
       });
+  }
+
+  function deleteVideo(video_id){
+    Video.charge({id: video_id}).$promise
+      .then(function(data) {
+        var elementPos = vm.videos.map(function(x) {return x.id; }).
+        indexOf(parseInt(data.id));
+        vm.videos.splice(elementPos, 1);
+      })
+      .catch(function() {
+        console.log('video delete error');
+      });
+  }
+
+  function checkSender(user_id) {
+    if ((user_id) && (JSON.parse(window.localStorage['status']).id == user_id))
+      return false;
+    else
+      return true
   }
 }
 

@@ -3,24 +3,41 @@ angular
   .controller('HomeCourseCtrl', HomeCourseCtrl);
 
 HomeCourseCtrl.$inject = [
-  'ENV', '$scope', '$state', 'Course', 'Upload', 'Category'
+  'ENV', '$scope', '$state', 'Course', 'Upload', 'Category', 'Subscription', '$parse'
 ];
 
-function HomeCourseCtrl(ENV, $scope, $state, Course, Upload, Category) {
+function HomeCourseCtrl(ENV, $scope, $state, Course, Upload, Category, Subscription, $parse) {
   console.log('HomeCourseCtrl load');
   var vm = this;
+  var _lastGoodResult = '';
   vm.nameCourse = undefined;
   vm.visible = false;
   vm.courses = undefined;
   vm.categories = undefined;
   vm.selectedCat = undefined;
   vm.course = undefined;
+  vm.csv = {
+    content: null,
+    header: false,
+    headerVisible: true,
+    separator: ',',
+    separatorVisible: true,
+    result: null,
+    encoding: 'ISO-8859-1',
+    encodingVisible: true
+  };
 
   vm.getCategories = getCategories;
   vm.changeVisible = changeVisible;
+  vm.checkSender = checkSender;
+  vm.resetForm = resetForm;
+  vm.deleteCourse = deleteCourse;
+  vm.deleteSubscription = deleteSubscription;
   vm.createCourse = createCourse;
   vm.getCourses = getCourses;
+  vm.toPrettyJSON = toPrettyJSON;
   vm.upload = upload;
+  vm.mappedData = mappedData;
   getCourses();
 
 
@@ -46,6 +63,7 @@ function HomeCourseCtrl(ENV, $scope, $state, Course, Upload, Category) {
     }).then(function (resp) {
       getCourses();
       console.log('Success upload');
+      resetForm();
     }, function (resp) {
       console.log('Error status: ' + resp.status);
     });
@@ -61,6 +79,38 @@ function HomeCourseCtrl(ENV, $scope, $state, Course, Upload, Category) {
       });
   }
 
+  function deleteCourse(course_id){
+    Course.charge({id: course_id}).$promise
+      .then(function(data) {
+        var elementPos = vm.courses.map(function(x) {return x.id; }).
+        indexOf(parseInt(data.id));
+        vm.courses.splice(elementPos, 1);
+      })
+      .catch(function() {
+        console.log('course delete error');
+      });
+  }
+
+  function deleteSubscription(course_id){
+    Subscription.charge({id: course_id}).$promise
+      .then(function(data) {
+        var elementPos = vm.courses.map(function(x) {return x.id; }).
+        indexOf(parseInt(data.id));
+        vm.courses.splice(elementPos, 1);
+      })
+      .catch(function() {
+        console.log('subscription delete error');
+      });
+  }
+
+  function checkSender(user_id) {
+    if ((user_id) && (JSON.parse(window.localStorage['status']).id == user_id))
+      return false;
+    else
+
+      return true
+  }
+
   function getCategories(){
     Category.get().$promise
       .then(function(data) {
@@ -69,5 +119,35 @@ function HomeCourseCtrl(ENV, $scope, $state, Course, Upload, Category) {
       .catch(function() {
         console.log('categories load error');
       });
+  }
+
+  function resetForm(){
+    var frm = document.getElementsByName('courseForm')[0];
+    frm.reset();
+    vm.course = null;
+  }
+
+
+  function toPrettyJSON(json, tabWidth) {
+    var objStr = JSON.stringify(json);
+    var obj = null;
+    try {
+      obj = $parse(objStr)({});
+    } catch(e){
+      return _lastGoodResult;
+    }
+    var result = JSON.stringify(obj, null, Number(tabWidth));
+    _lastGoodResult = result;
+  }
+
+  function mappedData(obj) {
+    var newArr = [];
+    for (var i = 0; i < obj.courses.length; i++) {
+      newArr.push(obj.courses[i]);
+      if (newArr[newArr.length - 1].categories) {
+        newArr[newArr.length - 1].categories = JSON.stringify(newArr[newArr.length - 1].categories);
+      }
+    }
+    return newArr;
   }
 }

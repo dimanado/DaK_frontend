@@ -48,13 +48,16 @@
 </div>
 <div class="row">
   <div class="list-group col-md-9">
-    <a ui-sref="applicationLayout.video({id: {{ video.id }} })" class="list-group-item row" ng-repeat=" video in video.videos ">
-      <div class="col-md-4 video-picture row">
-        <img ng-src = {{video.image}}>
+    <a ui-sref="applicationLayout.video({id: {{ item.id }} })" class="list-group-item row" ng-repeat="item in video.videos">
+      <div class="col-md-4 video-picture">
+        <img ng-src = {{item.image}}>
       </div>
-      <div class="col-md-8 item-description">
-        <h3 data-ng-bind="video.name"></h3>
-        <p>{{ video.description }}</p>
+      <div class="col-md-4 item-description">
+        <h3 data-ng-bind="item.name"></h3>
+        <p>{{ item.description }}</p>
+      </div>
+      <div class="col-md-4" style="display:none" showonhoverparent>
+        <button ng-hide="video.checkSender(video.meta.user_id)" ng-click="video.deleteVideo(item.id)" class="btn btn-danger delete-button">Delete</button>
       </div>
     </a>
   </div>

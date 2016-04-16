@@ -2,9 +2,9 @@
 
 angular
   .module('Dak', [
-    'config', 'ngAnimate', 'ngCookies', 'ngMessages', 'ngPassword', 'ngResource', 'Auth', 'Layout',
-    'Home:Course', 'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router', 'ui.bootstrap.popover',
-    'ngFileUpload', "com.2fdevs.videogular", 'Home:Video', 'Video', 'Comment',
+    'config', 'ngAnimate', 'ngCookies', 'ngMessages', 'ngPassword', 'ngResource', 'ngCsvImport', 'Auth', 'Layout',
+    'Home:Course', 'Home:Profile', 'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router', 'ui.bootstrap.popover',
+    'ngFileUpload', "com.2fdevs.videogular", 'Home:Video', 'Video', 'Comment', 'ngCsv',
     'Course', "com.2fdevs.videogular.plugins.controls",
     "com.2fdevs.videogular.plugins.overlayplay",
     "com.2fdevs.videogular.plugins.poster"
@@ -60,8 +60,8 @@ angular
         })
         .state('applicationLayout.homeLayout.home', {
           url: '/home/profile',
-          templateUrl: 'components/home/profile/home.html'
-          //controller: 'CoursesCtrl as courses'
+          templateUrl: 'components/home/profile/home.html',
+          controller: 'homeProfileCtrl as profile'
         })
         .state('applicationLayout.homeLayout.myCourses', {
           url: '/home/Courses',

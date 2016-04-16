@@ -24,7 +24,7 @@
             <div class="btn btn-default " ngf-select ng-model="course.course.tasks" ngf-multiple="true" name="file"
                  ngf-pattern=".pdf,.doc,.docx"
                  accept=".pdf,.doc,.docx"
-                 ngf-max-size="20MB" required>Select</div>
+                 ngf-max-size="20MB">Select</div>
             Files:
             <ul>
               <li ng-repeat="f in course.course.tasks">{{f.name}} {{f.$error}} {{f.$errorParam}}</li>
@@ -40,6 +40,41 @@
             <button type="submit" ng-disabled="!courseForm.$valid" class="btn btn-default">Add</button>
           </div>
         </form>
+
+
+        <div class="title"><h4>Import or export CSV file: </h4></div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="block right">
+              <button ng-csv="course.mappedData(course)" filename="courses.csv" class="export-button">Export</button>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="block right">
+              <ng-csv-import
+                class="import"
+                content="csv.content"
+                header="csv.header"
+                header-visible="csv.headerVisible"
+                separator="csv.separator"
+                separator-visible="csv.separatorVisible"
+                result="csv.result"
+                encoding="csv.encoding"
+                encoding-visible="csv.encodingVisible">
+              </ng-csv-import>
+            </div>
+            <div class="block row"  ng-if="csv.result">
+              <div class="content" ng-src="{{course.toPrettyJSON(csv.result, 2)}}"></div>
+              <!--<button ng-click="course.upload(csv.result)">dsf</button>-->
+            </div>
+            <div ng-if="csv.content" class="block left">
+              <h2>CSV</h2>
+              <div class="content"><pre>{{ csv.content }}</pre></div>
+            </div>
+          </div>
+        </div>
+        <br>
+
       </div>
     </div>
   </div>
@@ -54,8 +89,14 @@
           <div class="panel-body content">
             <img class="content" ng-src = {{item.image}} />
           </div>
+          <div class="panel-body content" style="display:none" showonhoverparent>
+            <a href="javascript:void(0)"  ng-hide="course.checkSender(item.user_id)" ng-click="course.deleteCourse(item.id)" class="fa fa-trash-o">Delete course</a>
+          </div>
+          <div class="panel-body content" style="display:none" showonhoverparent>
+            <a href="javascript:void(0)"  ng-show="course.checkSender(item.user_id)" ng-click="course.deleteSubscription(item.id)" class="fa fa-trash-o">Delete subscription</a>
+          </div>
           <div class="panel-body" ng-repeat="cat in item.categories" style="float:left">
-            <a href="javascript:void(0)" ng-click="courses.selectedCat = cat.name" class="button">{{cat.name}}</a>
+            <a href="javascript:void(0)" ng-click="courses.selectedCat = cat.name" class="fa fa-tags">{{cat.name}}</a>
           </div>
         </div>
       </a>
