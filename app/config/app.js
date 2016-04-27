@@ -2,9 +2,9 @@
 
 angular
   .module('Dak', [
-    'config', 'ngAnimate', 'ngCookies', 'ngMessages', 'ngPassword', 'ngResource', 'ngCsvImport', 'Auth', 'Layout',
+    'config', 'ngAnimate', 'ngCookies', 'ngMessages', 'ngPassword', 'ngResource', 'Auth', 'Layout',
     'Home:Course', 'Home:Profile', 'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router', 'ui.bootstrap.popover',
-    'ngFileUpload', "com.2fdevs.videogular", 'Home:Video', 'Video', 'Comment', 'ngCsv',
+    'ngFileUpload', "com.2fdevs.videogular", 'Home:Video', 'Video', 'Comment',
     'Course', "com.2fdevs.videogular.plugins.controls",
     "com.2fdevs.videogular.plugins.overlayplay",
     "com.2fdevs.videogular.plugins.poster"

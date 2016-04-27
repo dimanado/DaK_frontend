@@ -3,29 +3,20 @@ angular
   .controller('HomeCourseCtrl', HomeCourseCtrl);
 
 HomeCourseCtrl.$inject = [
-  'ENV', '$scope', '$state', 'Course', 'Upload', 'Category', 'Subscription', '$parse'
+  'ENV', '$scope', '$state', 'Course', 'Upload', 'Category', 'Subscription'
 ];
 
-function HomeCourseCtrl(ENV, $scope, $state, Course, Upload, Category, Subscription, $parse) {
+function HomeCourseCtrl(ENV, $scope, $state, Course, Upload, Category, Subscription) {
   console.log('HomeCourseCtrl load');
   var vm = this;
-  var _lastGoodResult = '';
+
   vm.nameCourse = undefined;
   vm.visible = false;
   vm.courses = undefined;
   vm.categories = undefined;
   vm.selectedCat = undefined;
   vm.course = undefined;
-  vm.csv = {
-    content: null,
-    header: false,
-    headerVisible: true,
-    separator: ',',
-    separatorVisible: true,
-    result: null,
-    encoding: 'ISO-8859-1',
-    encodingVisible: true
-  };
+
 
   vm.getCategories = getCategories;
   vm.changeVisible = changeVisible;
@@ -35,7 +26,6 @@ function HomeCourseCtrl(ENV, $scope, $state, Course, Upload, Category, Subscript
   vm.deleteSubscription = deleteSubscription;
   vm.createCourse = createCourse;
   vm.getCourses = getCourses;
-  vm.toPrettyJSON = toPrettyJSON;
   vm.upload = upload;
   vm.mappedData = mappedData;
   getCourses();
@@ -52,7 +42,7 @@ function HomeCourseCtrl(ENV, $scope, $state, Course, Upload, Category, Subscript
     if (vm.course.photo && !vm.course.photo.$error) {
       vm.upload(vm.course);
     }
-  };
+  }
 
   function upload (course) {
     Upload.upload({
@@ -67,7 +57,7 @@ function HomeCourseCtrl(ENV, $scope, $state, Course, Upload, Category, Subscript
     }, function (resp) {
       console.log('Error status: ' + resp.status);
     });
-  };
+  }
 
   function getCourses(){
     Course.get().$promise
@@ -127,18 +117,6 @@ function HomeCourseCtrl(ENV, $scope, $state, Course, Upload, Category, Subscript
     vm.course = null;
   }
 
-
-  function toPrettyJSON(json, tabWidth) {
-    var objStr = JSON.stringify(json);
-    var obj = null;
-    try {
-      obj = $parse(objStr)({});
-    } catch(e){
-      return _lastGoodResult;
-    }
-    var result = JSON.stringify(obj, null, Number(tabWidth));
-    _lastGoodResult = result;
-  }
 
   function mappedData(obj) {
     var newArr = [];
