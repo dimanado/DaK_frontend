@@ -1,21 +1,21 @@
 <div id="courses" class="container">
   <div class="row">
     <div class="col-xs-4">
-      <label>Search:</label>
-      <input type="text" class="form-control" placeholder="Course name" ng-model="query">
+      <label>Поиск:</label>
+      <input type="text" class="form-control" placeholder="Название курса" ng-model="query">
     </div>
     <div class="col-xs-4">
-      <label>Sort by:</label>
+      <label>Сортировать по:</label>
       <select class="form-control" ng-init="sortBy = 'none'" ng-model="sortBy">
-        <option value="none">-- Select --</option>
-        <option value="name">Name</option>
-        <option value="created_at">Date</option>
+        <option value="none">-- Выбор --</option>
+        <option value="name">Название</option>
+        <option value="created_at">Дата</option>
       </select>
     </div>
     <div class="col-xs-4">
-      <label>Choose category:</label>
+      <label>Выбор категории:</label>
       <select class="form-control" ng-model="courses.selectedCat">
-        <option value="">All</option>
+        <option value="">Все</option>
         <option ng-repeat="cat in courses.categories">{{cat.name}}</option>
       </select>
     </div>

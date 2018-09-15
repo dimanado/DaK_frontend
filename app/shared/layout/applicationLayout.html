@@ -13,19 +13,20 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
         <ul class="nav navbar-nav">
-          <li ><a ui-sref="applicationLayout.courses">Available Courses</a></li>
+          <li ><a ui-sref="applicationLayout.courses">Учебные курсы</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="layout.isLoggedIn()" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{layout.userNameStr}} <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a ui-sref="applicationLayout.homeLayout.home">profile</a></li>
-              <li><a ui-sref="applicationLayout.homeLayout.myCourses">My courses</a></li>
-              <li><a ng-click="layout.signOutCl()" href="">Logout</a></li>
+              <li><a ui-sref="applicationLayout.homeLayout.home">Профайл</a></li>
+              <li><a ui-sref="applicationLayout.homeLayout.myCourses">Мои курсы</a></li>
+              <li><a ui-sref="applicationLayout.homeLayout.myConversations">Мои сообщения</a></li>
+              <li><a ng-click="layout.signOutCl()" href="">Выйти</a></li>
             </ul>
           </li>
-          <li ng-show="layout.isLoggedOut('authentication')" ><a ui-sref="applicationLayout.authentication">Sign in</a></li>
-          <li ng-show="layout.isLoggedOut('registration')" ><a ui-sref="applicationLayout.registration">Sign up</a></li>
+          <li ng-show="layout.isLoggedOut('authentication')" ><a ui-sref="applicationLayout.authentication">Войти</a></li>
+          <li ng-show="layout.isLoggedOut('registration')" ><a ui-sref="applicationLayout.registration">Регистрация</a></li>
         </ul>
       </div>
     </div>

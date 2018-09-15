@@ -1,0 +1,75 @@
+digraph dependencies {
+  node[shape="component",style="filled",colorscheme=set312]
+
+
+    node[shape="component"]
+    "Comment"[label="Comment", fillcolor=1]
+
+    
+
+
+    node[shape="ellipse"]
+    
+
+
+    
+
+    
+
+    
+      "Comment"[label="Comment", fillcolor=6]
+      "Comment" -> "Comment"
+    
+
+    node[shape="rectangle"]
+    
+
+    node[shape="note"]
+    
+      "comment"[label="comment", fillcolor=3]
+      "Comment" -> "comment"
+    
+
+    node[shape="folder"]
+    
+
+
+
+
+
+
+
+    node[shape="ellipse",style="filled", fillcolor=11]
+    
+
+    
+      
+        "Comment"[label="Comment"]
+        "Comment" -> "comment"
+      
+        "$stateParams"[label="$stateParams"]
+        "$stateParams" -> "comment"
+      
+        "User"[label="User"]
+        "User" -> "comment"
+      
+    
+
+    
+
+
+    
+
+    
+
+    
+      
+        "ENV"[label="ENV"]
+        "ENV" -> "Comment"
+      
+    
+
+    
+
+
+}

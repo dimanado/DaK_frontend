@@ -3,7 +3,7 @@
 angular
   .module('Dak', [
     'config', 'ngAnimate', 'ngCookies', 'ngMessages', 'ngPassword', 'ngResource', 'Auth', 'Layout',
-    'Home:Course', 'Home:Profile', 'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router', 'ui.bootstrap.popover',
+    'Home:Course', 'Home:Conversation', 'Home:Profile', 'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router', 'ui.bootstrap.popover',
     'ngFileUpload', "com.2fdevs.videogular", 'Home:Video', 'Video', 'Comment',
     'Course', "com.2fdevs.videogular.plugins.controls",
     "com.2fdevs.videogular.plugins.overlayplay",
@@ -72,6 +72,16 @@ angular
           url: '/home/course/:id/videos',
           templateUrl: 'components/home/video/myVideos.html',
           controller: 'homeVideoCtrl as video'
+        })
+        .state('applicationLayout.homeLayout.myConversations', {
+          url: '/home/Conversations',
+          templateUrl: 'components/home/conversation/myConversations.html',
+          controller: 'homeConversationCtrl as conversation'
+        })
+        .state('applicationLayout.homeLayout.newMessage', {
+          url: '/home/NewMessage',
+          templateUrl: 'components/home/conversation/newMessage.html',
+          controller: 'homeConversationCtrl as conversation'
         });
 
       function checkAuthenticationAndLogout($auth, $state) {

@@ -1,0 +1,86 @@
+digraph dependencies {
+  node[shape="component",style="filled",colorscheme=set312]
+
+
+    node[shape="component"]
+    "Auth"[label="Auth", fillcolor=1]
+
+    
+
+
+    node[shape="ellipse"]
+    
+
+
+    
+      "AuthCtrl"[label="AuthCtrl", fillcolor=4]
+      "Auth" -> "AuthCtrl"
+    
+
+    
+
+    
+      "compareTo"[label="compareTo", fillcolor=6]
+      "Auth" -> "compareTo"
+    
+      "User"[label="User", fillcolor=6]
+      "Auth" -> "User"
+    
+
+    node[shape="rectangle"]
+    
+
+    node[shape="note"]
+    
+
+    node[shape="folder"]
+    
+
+
+
+
+
+
+
+    node[shape="ellipse",style="filled", fillcolor=11]
+    
+
+    
+
+    
+
+
+    
+      
+        "ENV"[label="ENV"]
+        "ENV" -> "AuthCtrl"
+      
+        "$state"[label="$state"]
+        "$state" -> "AuthCtrl"
+      
+        "$auth"[label="$auth"]
+        "$auth" -> "AuthCtrl"
+      
+        "User"[label="User"]
+        "User" -> "AuthCtrl"
+      
+    
+
+    
+
+    
+      
+        "ENV"[label="ENV"]
+        "ENV" -> "compareTo"
+      
+    
+      
+        "ENV"[label="ENV"]
+        "ENV" -> "User"
+      
+    
+
+    
+
+
+}

@@ -1,6 +1,6 @@
 <div>
   <form>
-    <h4>Comments</h4>
+    <h4>Комментарии</h4>
     <ul>
       <li ng-repeat="comment in video.video.comments.slice().reverse()" ng-click="getReplierIdAndNickname(comment.id,comment.sender_nickname,comment.user_id)">
         <div class="comments">{{comment.sender_nickname}}</div>
@@ -11,8 +11,8 @@
       </li>
     </ul>
     <form>
-      <textarea ng-model="txtcomment" placeholder="Your Comment" style='width:550px'></textarea>
-      <button ng-click="addComment(txtcomment,video.video.id)">Post Comment</button>
+      <textarea ng-model="txtcomment" placeholder="Ваш комментарий" style='width:550px'></textarea>
+      <button ng-click="addComment(txtcomment,video.video.id)">Добавить</button>
     </form>
   </form>
 </div>

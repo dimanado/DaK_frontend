@@ -1,0 +1,81 @@
+digraph dependencies {
+  node[shape="component",style="filled",colorscheme=set312]
+
+
+    node[shape="component"]
+    "Home:Conversation"[label="Home:Conversation", fillcolor=1]
+
+    
+
+
+    node[shape="ellipse"]
+    
+
+
+    
+      "homeConversationCtrl"[label="homeConversationCtrl", fillcolor=4]
+      "Home:Conversation" -> "homeConversationCtrl"
+    
+
+    
+
+    
+      "Message"[label="Message", fillcolor=6]
+      "Home:Conversation" -> "Message"
+    
+
+    node[shape="rectangle"]
+    
+
+    node[shape="note"]
+    
+
+    node[shape="folder"]
+    
+
+
+
+
+
+
+
+    node[shape="ellipse",style="filled", fillcolor=11]
+    
+
+    
+
+    
+
+
+    
+      
+        "ENV"[label="ENV"]
+        "ENV" -> "homeConversationCtrl"
+      
+        "$state"[label="$state"]
+        "$state" -> "homeConversationCtrl"
+      
+        "$stateParams"[label="$stateParams"]
+        "$stateParams" -> "homeConversationCtrl"
+      
+        "Message"[label="Message"]
+        "Message" -> "homeConversationCtrl"
+      
+        "User"[label="User"]
+        "User" -> "homeConversationCtrl"
+      
+    
+
+    
+
+    
+      
+        "ENV"[label="ENV"]
+        "ENV" -> "Message"
+      
+    
+
+    
+
+
+}

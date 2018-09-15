@@ -5,7 +5,7 @@ angular
       {
         id: '@id'
       },{
-        charge: {method:'PUT', params:{id: '@id'}}
+        charge: {method:'POST', params:{id: '@id'}}
       });
   }])
   .directive('vote', function(Vote) {

@@ -1,0 +1,86 @@
+digraph dependencies {
+  node[shape="component",style="filled",colorscheme=set312]
+
+
+    node[shape="component"]
+    "Course"[label="Course", fillcolor=1]
+
+    
+
+
+    node[shape="ellipse"]
+    
+
+
+    
+      "CoursesCtrl"[label="CoursesCtrl", fillcolor=4]
+      "Course" -> "CoursesCtrl"
+    
+
+    
+
+    
+      "Course"[label="Course", fillcolor=6]
+      "Course" -> "Course"
+    
+      "Subscription"[label="Subscription", fillcolor=6]
+      "Course" -> "Subscription"
+    
+
+    node[shape="rectangle"]
+    
+
+    node[shape="note"]
+    
+
+    node[shape="folder"]
+    
+
+
+
+
+
+
+
+    node[shape="ellipse",style="filled", fillcolor=11]
+    
+
+    
+
+    
+
+
+    
+      
+        "ENV"[label="ENV"]
+        "ENV" -> "CoursesCtrl"
+      
+        "$state"[label="$state"]
+        "$state" -> "CoursesCtrl"
+      
+        "Course"[label="Course"]
+        "Course" -> "CoursesCtrl"
+      
+        "Category"[label="Category"]
+        "Category" -> "CoursesCtrl"
+      
+    
+
+    
+
+    
+      
+        "ENV"[label="ENV"]
+        "ENV" -> "Course"
+      
+    
+      
+        "ENV"[label="ENV"]
+        "ENV" -> "Subscription"
+      
+    
+
+    
+
+
+}

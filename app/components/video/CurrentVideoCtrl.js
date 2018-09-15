@@ -34,6 +34,7 @@ function CurrentVideoCtrl(ENV, $scope, $state, Video, $stateParams, $sce, Vote) 
 
   function vote(vote_type) {
     var status = JSON.parse(window.localStorage['status'] || '{}');
+
     Vote.charge({id: $stateParams.id, user_email: status.name, vote_type: vote_type, item_type: 'video'}).$promise
       .then(function(data) {
         vm.video = data.vote_video;
