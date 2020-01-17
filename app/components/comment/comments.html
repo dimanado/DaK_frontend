@@ -1,0 +1,18 @@
+<div>
+  <form>
+    <h4>Комментарии</h4>
+    <ul>
+      <li ng-repeat="comment in video.video.comments.slice().reverse()" ng-click="getReplierIdAndNickname(comment.id,comment.sender_nickname,comment.user_id)">
+        <div class="comments">{{comment.sender_nickname}}</div>
+        <span ng-show="comment.root_comment_nickname">{{comment.root_comment_nickname+","}}</span>
+        {{comment.body}}
+        <button ng-hide="checkSender(comment.user_id)" class="fa fa-times"  ng-click="deleteComment(comment.id)"></button>
+        <div style='margin-left:70px;'>{{comment.created_at | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+      </li>
+    </ul>
+    <form>
+      <textarea ng-model="txtcomment" placeholder="Ваш комментарий" style='width:550px'></textarea>
+      <button ng-click="addComment(txtcomment,video.video.id)">Добавить</button>
+    </form>
+  </form>
+</div>

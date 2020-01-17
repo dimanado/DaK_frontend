@@ -4,5 +4,7 @@ angular
     return $resource(ENV.apiEndpoint + "/courses/:id",
       {
         id: '@id'
+      },{
+        charge: {method:'DELETE', params:{id: '@id'}}
       });
-  }])
+  }]);

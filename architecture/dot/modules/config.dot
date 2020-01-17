@@ -1,0 +1,53 @@
+digraph dependencies {
+  node[shape="component",style="filled",colorscheme=set312]
+
+
+    node[shape="component"]
+    "config"[label="config", fillcolor=1]
+
+    
+
+
+    node[shape="ellipse"]
+    
+
+
+    
+
+    
+
+    
+
+    node[shape="rectangle"]
+    
+
+    node[shape="note"]
+    
+
+    node[shape="folder"]
+    
+
+
+
+
+
+
+
+    node[shape="ellipse",style="filled", fillcolor=11]
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+
+}

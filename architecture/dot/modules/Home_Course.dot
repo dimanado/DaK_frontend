@@ -1,0 +1,89 @@
+digraph dependencies {
+  node[shape="component",style="filled",colorscheme=set312]
+
+
+    node[shape="component"]
+    "Home:Course"[label="Home:Course", fillcolor=1]
+
+    
+
+
+    node[shape="ellipse"]
+    
+
+
+    
+      "HomeCourseCtrl"[label="HomeCourseCtrl", fillcolor=4]
+      "Home:Course" -> "HomeCourseCtrl"
+    
+
+    
+
+    
+      "Category"[label="Category", fillcolor=6]
+      "Home:Course" -> "Category"
+    
+
+    node[shape="rectangle"]
+    
+
+    node[shape="note"]
+    
+      "showonhoverparent"[label="showonhoverparent", fillcolor=3]
+      "Home:Course" -> "showonhoverparent"
+    
+
+    node[shape="folder"]
+    
+
+
+
+
+
+
+
+    node[shape="ellipse",style="filled", fillcolor=11]
+    
+
+    
+      
+    
+
+    
+
+
+    
+      
+        "ENV"[label="ENV"]
+        "ENV" -> "HomeCourseCtrl"
+      
+        "$state"[label="$state"]
+        "$state" -> "HomeCourseCtrl"
+      
+        "Course"[label="Course"]
+        "Course" -> "HomeCourseCtrl"
+      
+        "Upload"[label="Upload"]
+        "Upload" -> "HomeCourseCtrl"
+      
+        "Category"[label="Category"]
+        "Category" -> "HomeCourseCtrl"
+      
+        "Subscription"[label="Subscription"]
+        "Subscription" -> "HomeCourseCtrl"
+      
+    
+
+    
+
+    
+      
+        "ENV"[label="ENV"]
+        "ENV" -> "Category"
+      
+    
+
+    
+
+
+}

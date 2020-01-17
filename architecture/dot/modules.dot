@@ -1,0 +1,106 @@
+digraph dependencies {
+  node[shape="ellipse",style="filled",colorscheme=set312]
+
+  
+    "Dak"[label="Dak", fillcolor=1]
+  
+    "config"[label="config", fillcolor=1]
+  
+    "Comment"[label="Comment", fillcolor=1]
+  
+    "Course"[label="Course", fillcolor=1]
+  
+    "Auth"[label="Auth", fillcolor=1]
+  
+    "Video"[label="Video", fillcolor=1]
+  
+    "Layout"[label="Layout", fillcolor=1]
+  
+    "Home:Conversation"[label="Home:Conversation", fillcolor=1]
+  
+    "User"[label="User", fillcolor=1]
+  
+    "Home:Course"[label="Home:Course", fillcolor=1]
+  
+    "Home:Profile"[label="Home:Profile", fillcolor=1]
+  
+    "Home:Video"[label="Home:Video", fillcolor=1]
+  
+
+  node[shape="ellipse",style="filled",fillcolor=2]
+  
+    
+      "config" -> "Dak"
+    
+      "ngAnimate" -> "Dak"
+    
+      "ngCookies" -> "Dak"
+    
+      "ngMessages" -> "Dak"
+    
+      "ngPassword" -> "Dak"
+    
+      "ngResource" -> "Dak"
+    
+      "Auth" -> "Dak"
+    
+      "Layout" -> "Dak"
+    
+      "Home:Course" -> "Dak"
+    
+      "Home:Conversation" -> "Dak"
+    
+      "Home:Profile" -> "Dak"
+    
+      "ngSanitize" -> "Dak"
+    
+      "ngTouch" -> "Dak"
+    
+      "ng-token-auth" -> "Dak"
+    
+      "ui.router" -> "Dak"
+    
+      "ui.bootstrap.popover" -> "Dak"
+    
+      "ngFileUpload" -> "Dak"
+    
+      "com.2fdevs.videogular" -> "Dak"
+    
+      "Home:Video" -> "Dak"
+    
+      "Video" -> "Dak"
+    
+      "Comment" -> "Dak"
+    
+      "Course" -> "Dak"
+    
+      "com.2fdevs.videogular.plugins.controls" -> "Dak"
+    
+      "com.2fdevs.videogular.plugins.overlayplay" -> "Dak"
+    
+      "com.2fdevs.videogular.plugins.poster" -> "Dak"
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+}

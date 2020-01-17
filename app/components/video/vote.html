@@ -1,0 +1,14 @@
+<div class="panel-body">
+  <button popover-template="'popover.html'"
+          popover-placement="bottom"
+          popover-trigger="mouseenter"
+          type="button"
+          class="fa fa-thumbs-up" ng-click="video.vote('like')">{{ video.video.like_size }}</button>
+  <button class="fa fa-thumbs-down" ng-click="video.vote('dislike')">{{ video.video.dislike_size }}</button>
+
+  <script type="text/ng-template" id="popover.html">
+    <div>
+      Popover content:
+    </div>
+  </script>
+</div>

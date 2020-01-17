@@ -1,0 +1,61 @@
+digraph dependencies {
+  node[shape="component",style="filled",colorscheme=set312]
+
+
+    node[shape="component"]
+    "User"[label="User", fillcolor=1]
+
+    
+
+
+    node[shape="ellipse"]
+    
+
+
+    
+
+    
+
+    
+      "User"[label="User", fillcolor=6]
+      "User" -> "User"
+    
+
+    node[shape="rectangle"]
+    
+
+    node[shape="note"]
+    
+
+    node[shape="folder"]
+    
+
+
+
+
+
+
+
+    node[shape="ellipse",style="filled", fillcolor=11]
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+      
+        "ENV"[label="ENV"]
+        "ENV" -> "User"
+      
+    
+
+    
+
+
+}

@@ -19,6 +19,7 @@
 
     <vg-overlay-play></vg-overlay-play>
   </videogular>
+  <comment video="video" add-comment="addComment()"></comment>
 </div>
 <div class="col-md-3 ">
   <div class="thumbnail">
@@ -27,5 +28,25 @@
       <h3>{{video.video.name}}</h3>
       <p>{{video.video.description}}</p>
     </div>
+    <div class="panel-body">
+      <button popover-template="'popover.html'"
+        popover-placement="bottom"
+        popover-trigger="mouseenter"
+        type="button"
+        class="fa fa-thumbs-up" ng-click="video.vote('like')"
+        ng-disabled="video.checkVoter(video.video.author_id)">{{ video.video.like_size }}
+      </button>
+      <button class="fa fa-thumbs-down" ng-click="video.vote('dislike')" ng-disabled="video.checkVoter(video.video.author_id)">{{ video.video.dislike_size }}</button>
+
+      <script type="text/ng-template" id="popover.html">
+        <div>
+          Popover content:
+        </div>
+      </script>
+    </div>
   </div>
 </div>
+
+
+
+

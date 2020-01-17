@@ -1,0 +1,1140 @@
+digraph dependencies {
+  node[shape="component",style="filled",colorscheme=set312]
+
+    node[shape="component"]
+    
+      "Dak"[label="Dak", fillcolor=1]
+    
+      "config"[label="config", fillcolor=1]
+    
+      "Comment"[label="Comment", fillcolor=1]
+    
+      "Course"[label="Course", fillcolor=1]
+    
+      "Auth"[label="Auth", fillcolor=1]
+    
+      "Video"[label="Video", fillcolor=1]
+    
+      "Layout"[label="Layout", fillcolor=1]
+    
+      "Home:Conversation"[label="Home:Conversation", fillcolor=1]
+    
+      "User"[label="User", fillcolor=1]
+    
+      "Home:Course"[label="Home:Course", fillcolor=1]
+    
+      "Home:Profile"[label="Home:Profile", fillcolor=1]
+    
+      "Home:Video"[label="Home:Video", fillcolor=1]
+    
+
+    
+      
+        "Dak" -> "config"
+      
+        "Dak" -> "ngAnimate"
+      
+        "Dak" -> "ngCookies"
+      
+        "Dak" -> "ngMessages"
+      
+        "Dak" -> "ngPassword"
+      
+        "Dak" -> "ngResource"
+      
+        "Dak" -> "Auth"
+      
+        "Dak" -> "Layout"
+      
+        "Dak" -> "Home:Course"
+      
+        "Dak" -> "Home:Conversation"
+      
+        "Dak" -> "Home:Profile"
+      
+        "Dak" -> "ngSanitize"
+      
+        "Dak" -> "ngTouch"
+      
+        "Dak" -> "ng-token-auth"
+      
+        "Dak" -> "ui.router"
+      
+        "Dak" -> "ui.bootstrap.popover"
+      
+        "Dak" -> "ngFileUpload"
+      
+        "Dak" -> "com.2fdevs.videogular"
+      
+        "Dak" -> "Home:Video"
+      
+        "Dak" -> "Video"
+      
+        "Dak" -> "Comment"
+      
+        "Dak" -> "Course"
+      
+        "Dak" -> "com.2fdevs.videogular.plugins.controls"
+      
+        "Dak" -> "com.2fdevs.videogular.plugins.overlayplay"
+      
+        "Dak" -> "com.2fdevs.videogular.plugins.poster"
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    node[shape="ellipse"]
+
+
+    
+      
+
+      
+
+      
+
+      
+
+
+      node[shape="rectangle"]
+      
+
+      node[shape="note"]
+      
+
+      node[shape="folder"]
+      
+
+
+      node[shape="ellipse"]
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+
+
+
+
+
+
+
+
+
+
+      node[shape="ellipse",style="filled", fillcolor=11]
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+    
+      
+
+      
+
+      
+
+      
+
+
+      node[shape="rectangle"]
+      
+
+      node[shape="note"]
+      
+
+      node[shape="folder"]
+      
+
+
+      node[shape="ellipse"]
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+
+
+
+
+
+
+
+
+
+
+      node[shape="ellipse",style="filled", fillcolor=11]
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+    
+      
+
+      
+
+      
+
+      
+        "Comment"[label="Comment", fillcolor=6]
+      
+
+
+      node[shape="rectangle"]
+      
+
+      node[shape="note"]
+      
+        "comment"[label="comment", fillcolor=3]
+      
+
+      node[shape="folder"]
+      
+
+
+      node[shape="ellipse"]
+      
+
+      
+        "Comment" -> "comment"
+      
+
+      
+
+      
+
+      
+
+      
+        "Comment" -> "Comment"
+      
+
+      
+
+
+
+
+
+
+
+
+
+
+
+      node[shape="ellipse",style="filled", fillcolor=11]
+      
+
+      
+        
+          "Comment"[label="Comment"]
+          "Comment" -> "comment"
+        
+          "$stateParams"[label="$stateParams"]
+          "$stateParams" -> "comment"
+        
+          "User"[label="User"]
+          "User" -> "comment"
+        
+      
+
+      
+
+      
+
+      
+
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "Comment"
+        
+      
+
+      
+
+    
+      
+
+      
+        "CoursesCtrl"[label="CoursesCtrl", fillcolor=4]
+      
+
+      
+
+      
+        "Course"[label="Course", fillcolor=6]
+      
+        "Subscription"[label="Subscription", fillcolor=6]
+      
+
+
+      node[shape="rectangle"]
+      
+
+      node[shape="note"]
+      
+
+      node[shape="folder"]
+      
+
+
+      node[shape="ellipse"]
+      
+
+      
+
+      
+
+      
+        "Course" -> "CoursesCtrl"
+      
+
+      
+
+      
+        "Course" -> "Course"
+      
+        "Course" -> "Subscription"
+      
+
+      
+
+
+
+
+
+
+
+
+
+
+
+      node[shape="ellipse",style="filled", fillcolor=11]
+      
+
+      
+
+      
+
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "CoursesCtrl"
+        
+          "$state"[label="$state"]
+          "$state" -> "CoursesCtrl"
+        
+          "Course"[label="Course"]
+          "Course" -> "CoursesCtrl"
+        
+          "Category"[label="Category"]
+          "Category" -> "CoursesCtrl"
+        
+      
+
+      
+
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "Course"
+        
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "Subscription"
+        
+      
+
+      
+
+    
+      
+
+      
+        "AuthCtrl"[label="AuthCtrl", fillcolor=4]
+      
+
+      
+
+      
+        "compareTo"[label="compareTo", fillcolor=6]
+      
+        "User"[label="User", fillcolor=6]
+      
+
+
+      node[shape="rectangle"]
+      
+
+      node[shape="note"]
+      
+
+      node[shape="folder"]
+      
+
+
+      node[shape="ellipse"]
+      
+
+      
+
+      
+
+      
+        "Auth" -> "AuthCtrl"
+      
+
+      
+
+      
+        "Auth" -> "compareTo"
+      
+        "Auth" -> "User"
+      
+
+      
+
+
+
+
+
+
+
+
+
+
+
+      node[shape="ellipse",style="filled", fillcolor=11]
+      
+
+      
+
+      
+
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "AuthCtrl"
+        
+          "$state"[label="$state"]
+          "$state" -> "AuthCtrl"
+        
+          "$auth"[label="$auth"]
+          "$auth" -> "AuthCtrl"
+        
+          "User"[label="User"]
+          "User" -> "AuthCtrl"
+        
+      
+
+      
+
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "compareTo"
+        
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "User"
+        
+      
+
+      
+
+    
+      
+
+      
+        "CurrentVideoCtrl"[label="CurrentVideoCtrl", fillcolor=4]
+      
+
+      
+
+      
+        "Video"[label="Video", fillcolor=6]
+      
+        "Vote"[label="Vote", fillcolor=6]
+      
+
+
+      node[shape="rectangle"]
+      
+
+      node[shape="note"]
+      
+        "vote"[label="vote", fillcolor=3]
+      
+
+      node[shape="folder"]
+      
+
+
+      node[shape="ellipse"]
+      
+
+      
+        "Video" -> "vote"
+      
+
+      
+
+      
+        "Video" -> "CurrentVideoCtrl"
+      
+
+      
+
+      
+        "Video" -> "Video"
+      
+        "Video" -> "Vote"
+      
+
+      
+
+
+
+
+
+
+
+
+
+
+
+      node[shape="ellipse",style="filled", fillcolor=11]
+      
+
+      
+        
+          "Vote"[label="Vote"]
+          "Vote" -> "vote"
+        
+      
+
+      
+
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "CurrentVideoCtrl"
+        
+          "$state"[label="$state"]
+          "$state" -> "CurrentVideoCtrl"
+        
+          "Video"[label="Video"]
+          "Video" -> "CurrentVideoCtrl"
+        
+          "$stateParams"[label="$stateParams"]
+          "$stateParams" -> "CurrentVideoCtrl"
+        
+          "Vote"[label="Vote"]
+          "Vote" -> "CurrentVideoCtrl"
+        
+      
+
+      
+
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "Video"
+        
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "Vote"
+        
+      
+
+      
+
+    
+      
+
+      
+        "LayoutCtrl"[label="LayoutCtrl", fillcolor=4]
+      
+
+      
+
+      
+        "_"[label="_", fillcolor=6]
+      
+
+
+      node[shape="rectangle"]
+      
+
+      node[shape="note"]
+      
+
+      node[shape="folder"]
+      
+
+
+      node[shape="ellipse"]
+      
+
+      
+
+      
+
+      
+        "Layout" -> "LayoutCtrl"
+      
+
+      
+
+      
+        "Layout" -> "_"
+      
+
+      
+
+
+
+
+
+
+
+
+
+
+
+      node[shape="ellipse",style="filled", fillcolor=11]
+      
+
+      
+
+      
+
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "LayoutCtrl"
+        
+          "$state"[label="$state"]
+          "$state" -> "LayoutCtrl"
+        
+          "$auth"[label="$auth"]
+          "$auth" -> "LayoutCtrl"
+        
+      
+
+      
+
+      
+        
+      
+
+      
+
+    
+      
+
+      
+        "homeConversationCtrl"[label="homeConversationCtrl", fillcolor=4]
+      
+
+      
+
+      
+        "Message"[label="Message", fillcolor=6]
+      
+
+
+      node[shape="rectangle"]
+      
+
+      node[shape="note"]
+      
+
+      node[shape="folder"]
+      
+
+
+      node[shape="ellipse"]
+      
+
+      
+
+      
+
+      
+        "Home:Conversation" -> "homeConversationCtrl"
+      
+
+      
+
+      
+        "Home:Conversation" -> "Message"
+      
+
+      
+
+
+
+
+
+
+
+
+
+
+
+      node[shape="ellipse",style="filled", fillcolor=11]
+      
+
+      
+
+      
+
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "homeConversationCtrl"
+        
+          "$state"[label="$state"]
+          "$state" -> "homeConversationCtrl"
+        
+          "$stateParams"[label="$stateParams"]
+          "$stateParams" -> "homeConversationCtrl"
+        
+          "Message"[label="Message"]
+          "Message" -> "homeConversationCtrl"
+        
+          "User"[label="User"]
+          "User" -> "homeConversationCtrl"
+        
+      
+
+      
+
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "Message"
+        
+      
+
+      
+
+    
+      
+
+      
+
+      
+
+      
+        "User"[label="User", fillcolor=6]
+      
+
+
+      node[shape="rectangle"]
+      
+
+      node[shape="note"]
+      
+
+      node[shape="folder"]
+      
+
+
+      node[shape="ellipse"]
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        "User" -> "User"
+      
+
+      
+
+
+
+
+
+
+
+
+
+
+
+      node[shape="ellipse",style="filled", fillcolor=11]
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "User"
+        
+      
+
+      
+
+    
+      
+
+      
+        "HomeCourseCtrl"[label="HomeCourseCtrl", fillcolor=4]
+      
+
+      
+
+      
+        "Category"[label="Category", fillcolor=6]
+      
+
+
+      node[shape="rectangle"]
+      
+
+      node[shape="note"]
+      
+        "showonhoverparent"[label="showonhoverparent", fillcolor=3]
+      
+
+      node[shape="folder"]
+      
+
+
+      node[shape="ellipse"]
+      
+
+      
+        "Home:Course" -> "showonhoverparent"
+      
+
+      
+
+      
+        "Home:Course" -> "HomeCourseCtrl"
+      
+
+      
+
+      
+        "Home:Course" -> "Category"
+      
+
+      
+
+
+
+
+
+
+
+
+
+
+
+      node[shape="ellipse",style="filled", fillcolor=11]
+      
+
+      
+        
+      
+
+      
+
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "HomeCourseCtrl"
+        
+          "$state"[label="$state"]
+          "$state" -> "HomeCourseCtrl"
+        
+          "Course"[label="Course"]
+          "Course" -> "HomeCourseCtrl"
+        
+          "Upload"[label="Upload"]
+          "Upload" -> "HomeCourseCtrl"
+        
+          "Category"[label="Category"]
+          "Category" -> "HomeCourseCtrl"
+        
+          "Subscription"[label="Subscription"]
+          "Subscription" -> "HomeCourseCtrl"
+        
+      
+
+      
+
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "Category"
+        
+      
+
+      
+
+    
+      
+
+      
+        "homeProfileCtrl"[label="homeProfileCtrl", fillcolor=4]
+      
+
+      
+
+      
+
+
+      node[shape="rectangle"]
+      
+
+      node[shape="note"]
+      
+
+      node[shape="folder"]
+      
+
+
+      node[shape="ellipse"]
+      
+
+      
+
+      
+
+      
+        "Home:Profile" -> "homeProfileCtrl"
+      
+
+      
+
+      
+
+      
+
+
+
+
+
+
+
+
+
+
+
+      node[shape="ellipse",style="filled", fillcolor=11]
+      
+
+      
+
+      
+
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "homeProfileCtrl"
+        
+          "$state"[label="$state"]
+          "$state" -> "homeProfileCtrl"
+        
+          "$stateParams"[label="$stateParams"]
+          "$stateParams" -> "homeProfileCtrl"
+        
+          "User"[label="User"]
+          "User" -> "homeProfileCtrl"
+        
+      
+
+      
+
+      
+
+      
+
+    
+      
+
+      
+        "homeVideoCtrl"[label="homeVideoCtrl", fillcolor=4]
+      
+
+      
+
+      
+        "Task"[label="Task", fillcolor=6]
+      
+
+
+      node[shape="rectangle"]
+      
+
+      node[shape="note"]
+      
+        "task"[label="task", fillcolor=3]
+      
+
+      node[shape="folder"]
+      
+
+
+      node[shape="ellipse"]
+      
+
+      
+        "Home:Video" -> "task"
+      
+
+      
+
+      
+        "Home:Video" -> "homeVideoCtrl"
+      
+
+      
+
+      
+        "Home:Video" -> "Task"
+      
+
+      
+
+
+
+
+
+
+
+
+
+
+
+      node[shape="ellipse",style="filled", fillcolor=11]
+      
+
+      
+        
+          "Task"[label="Task"]
+          "Task" -> "task"
+        
+          "Upload"[label="Upload"]
+          "Upload" -> "task"
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "task"
+        
+      
+
+      
+
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "homeVideoCtrl"
+        
+          "$state"[label="$state"]
+          "$state" -> "homeVideoCtrl"
+        
+          "$stateParams"[label="$stateParams"]
+          "$stateParams" -> "homeVideoCtrl"
+        
+          "Upload"[label="Upload"]
+          "Upload" -> "homeVideoCtrl"
+        
+          "Video"[label="Video"]
+          "Video" -> "homeVideoCtrl"
+        
+          "Subscription"[label="Subscription"]
+          "Subscription" -> "homeVideoCtrl"
+        
+      
+
+      
+
+      
+        
+          "ENV"[label="ENV"]
+          "ENV" -> "Task"
+        
+      
+
+      
+
+    
+}

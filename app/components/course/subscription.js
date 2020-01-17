@@ -5,5 +5,7 @@ angular
       {
         id: '@id',
         str: '@str'
+      },{
+        charge: {method:'DELETE', params:{id: '@id'}}
       });
   }]);

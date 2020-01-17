@@ -2,9 +2,9 @@
 
 angular
   .module('Dak', [
-    'config', 'ngAnimate', 'ngCookies', 'ngResource', 'Auth', 'Layout',
-    'Home:Course', 'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router',
-    'ngFileUpload', "com.2fdevs.videogular", 'Home:Video', 'Video',
+    'config', 'ngAnimate', 'ngCookies', 'ngMessages', 'ngPassword', 'ngResource', 'Auth', 'Layout',
+    'Home:Course', 'Home:Conversation', 'Home:Profile', 'ngSanitize', 'ngTouch', 'ng-token-auth', 'ui.router', 'ui.bootstrap.popover',
+    'ngFileUpload', "com.2fdevs.videogular", 'Home:Video', 'Video', 'Comment',
     'Course', "com.2fdevs.videogular.plugins.controls",
     "com.2fdevs.videogular.plugins.overlayplay",
     "com.2fdevs.videogular.plugins.poster"
@@ -37,14 +37,18 @@ angular
         .state('applicationLayout.videos', {
           url: '/course/:id/videos',
           templateUrl: 'components/video/videos.html',
-          controller: 'homeVideoCtrl as video'
+          controller: 'homeVideoCtrl as video',
+          resolve: {
+            login: function($auth, $state) {
+              checkAuthenticationAndLogout($auth, $state);
+            }
+          }
         })
         .state('applicationLayout.video', {
           url: '/video/:id',
           templateUrl: 'components/video/currentVideo.html',
           controller: 'CurrentVideoCtrl as video'
         })
-
         .state('applicationLayout.homeLayout', {
           abstract: true,
           templateUrl: 'components/home/layout/homeLayout.html',
@@ -56,8 +60,8 @@ angular
         })
         .state('applicationLayout.homeLayout.home', {
           url: '/home/profile',
-          templateUrl: 'components/home/profile/home.html'
-          //controller: 'CoursesCtrl as courses'
+          templateUrl: 'components/home/profile/home.html',
+          controller: 'homeProfileCtrl as profile'
         })
         .state('applicationLayout.homeLayout.myCourses', {
           url: '/home/Courses',
@@ -68,6 +72,16 @@ angular
           url: '/home/course/:id/videos',
           templateUrl: 'components/home/video/myVideos.html',
           controller: 'homeVideoCtrl as video'
+        })
+        .state('applicationLayout.homeLayout.myConversations', {
+          url: '/home/Conversations',
+          templateUrl: 'components/home/conversation/myConversations.html',
+          controller: 'homeConversationCtrl as conversation'
+        })
+        .state('applicationLayout.homeLayout.newMessage', {
+          url: '/home/NewMessage',
+          templateUrl: 'components/home/conversation/newMessage.html',
+          controller: 'homeConversationCtrl as conversation'
         });
 
       function checkAuthenticationAndLogout($auth, $state) {

@@ -38,3 +38,12 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', ['server', 'watch']);
+
+var ngGraph = require('gulp-angular-architecture-graph');
+ 
+gulp.task('default', function(){
+    gulp.src('./app/**/*.js', [''])
+        .pipe(ngGraph({
+            dest: 'architecture'
+        }));
+});

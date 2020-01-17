@@ -1,19 +1,40 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <form role="form" data-ng-submit="auth.signUp()">
+      <form role="form" name="reg" data-ng-submit="auth.signUp()" novalidate>
         <div class="text-center">
-          <div class ="form-group">Sign up</div>
+          <div class ="form-group">Регистрация</div>
         </div>
         <div class="input-group-lg input-full-width">
-          <div class ="form-group"><input type="email" placeholder="Email" ng-model="auth.credentials.email" class="form-control"></div>
-          <div class ="form-group"><input type="password" placeholder="Password" ng-model="auth.credentials.password" class="form-control"></div>
-          <div class ="form-group"><input type="password" placeholder="Password confirmation" ng-model="auth.credentials.password_confirmation" class="form-control"></div>
+          <div class ="form-group"> <input type="email" name="userEmail" placeholder="Email" ng-model="auth.credentials.email" class="form-control" required></div>
+          <div class="help-block" ng-messages="reg.userEmail.$error" ng-show="reg.userEmail.$touched">
+            <p ng-message="required">Email is required.</p>
+            <p ng-message="email">Your email is invalid</p>
+          </div>
+          <div class ="form-group"> <input type="text" name="userNickname" placeholder="ФИО" ng-model="auth.credentials.nickname" class="form-control" required></div>
+          <div class="help-block" ng-messages="reg.userNickname.$error" ng-show="reg.userNickname.$touched">
+            <p ng-message="required">Nickname is required.</p>
+            <p ng-message="text">Your nickname is invalid</p>
+          </div>
+          <div class ="form-group"><input type="password" name="userPassword" placeholder="Пароль" ng-model="auth.credentials.password" ng-minlength="5" ng-maxlength="10" required class="form-control">
+            <div class="help-block" ng-messages="reg.userPassword.$error" ng-show="reg.userPassword.$touched">
+              <p ng-message="minlength">Password is too short.</p>
+              <p ng-message="maxlength">Password is too long.</p>
+              <p ng-message="required">Password is required.</p>
+            </div>
+          </div>
+          <div class ="form-group"><input type="password" name="confirmPassword" placeholder="Подтвердите пароль" ng-model="auth.credentials.password_confirmation" match-password="userPassword" class="form-control" required></div>
+          <div class="help-block" ng-messages="reg.confirmPassword.$error" ng-show="reg.confirmPassword.$touched" ng-messages-multiple>
+            <p ng-message="required">Confirm password is required.</p>
+            <p ng-message="passwordMatch">Your passwords did not match</p>
+          </div>
         </div>
         <div>
-          <button class="btn btn-default pull-right">Next</button>
+          <button class="btn btn-default pull-right" ng-disabled="reg.$invalid">Далее</button>
         </div>
       </form>
     </div>
   </div>
 </div>
+
+

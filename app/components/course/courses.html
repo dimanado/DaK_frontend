@@ -1,13 +1,38 @@
 <div id="courses" class="container">
   <div class="row">
-    <div class="col-xs-4" ng-repeat=" course in courses.courses ">
-      <a ui-sref="applicationLayout.videos({id: {{ course.id }} })" class="link_to_course">
+    <div class="col-xs-4">
+      <label>Поиск:</label>
+      <input type="text" class="form-control" placeholder="Название курса" ng-model="query">
+    </div>
+    <div class="col-xs-4">
+      <label>Сортировать по:</label>
+      <select class="form-control" ng-init="sortBy = 'none'" ng-model="sortBy">
+        <option value="none">-- Выбор --</option>
+        <option value="name">Название</option>
+        <option value="created_at">Дата</option>
+      </select>
+    </div>
+    <div class="col-xs-4">
+      <label>Выбор категории:</label>
+      <select class="form-control" ng-model="courses.selectedCat">
+        <option value="">Все</option>
+        <option ng-repeat="cat in courses.categories">{{cat.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row from-filters">
+    <div class="col-xs-4" ng-repeat=" item in courses.courses | filter:
+    {name: query, categories: { name: courses.selectedCat }} | orderBy:sortBy">
+      <a ui-sref="applicationLayout.videos({id: {{ item.id }} })" class="link_to_course">
         <div class="panel panel-default">
           <div class="panel-heading title">
-            {{ course.name }}
+            {{ item.name }}
           </div>
           <div class="panel-body">
-            <img class="content" ng-src = {{course.image}} />
+            <img class="content" ng-src = {{item.image}} />
+          </div>
+          <div class="panel-body" ng-repeat="cat in item.categories" style="float:left">
+            <a href="javascript:void(0)" ng-click="courses.selectedCat = cat.name" class="fa fa-tags">{{cat.name}}</a>
           </div>
         </div>
       </a>

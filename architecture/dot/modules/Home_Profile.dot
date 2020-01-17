@@ -1,0 +1,70 @@
+digraph dependencies {
+  node[shape="component",style="filled",colorscheme=set312]
+
+
+    node[shape="component"]
+    "Home:Profile"[label="Home:Profile", fillcolor=1]
+
+    
+
+
+    node[shape="ellipse"]
+    
+
+
+    
+      "homeProfileCtrl"[label="homeProfileCtrl", fillcolor=4]
+      "Home:Profile" -> "homeProfileCtrl"
+    
+
+    
+
+    
+
+    node[shape="rectangle"]
+    
+
+    node[shape="note"]
+    
+
+    node[shape="folder"]
+    
+
+
+
+
+
+
+
+    node[shape="ellipse",style="filled", fillcolor=11]
+    
+
+    
+
+    
+
+
+    
+      
+        "ENV"[label="ENV"]
+        "ENV" -> "homeProfileCtrl"
+      
+        "$state"[label="$state"]
+        "$state" -> "homeProfileCtrl"
+      
+        "$stateParams"[label="$stateParams"]
+        "$stateParams" -> "homeProfileCtrl"
+      
+        "User"[label="User"]
+        "User" -> "homeProfileCtrl"
+      
+    
+
+    
+
+    
+
+    
+
+
+}

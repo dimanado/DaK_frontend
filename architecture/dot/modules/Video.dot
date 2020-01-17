@@ -1,0 +1,97 @@
+digraph dependencies {
+  node[shape="component",style="filled",colorscheme=set312]
+
+
+    node[shape="component"]
+    "Video"[label="Video", fillcolor=1]
+
+    
+
+
+    node[shape="ellipse"]
+    
+
+
+    
+      "CurrentVideoCtrl"[label="CurrentVideoCtrl", fillcolor=4]
+      "Video" -> "CurrentVideoCtrl"
+    
+
+    
+
+    
+      "Video"[label="Video", fillcolor=6]
+      "Video" -> "Video"
+    
+      "Vote"[label="Vote", fillcolor=6]
+      "Video" -> "Vote"
+    
+
+    node[shape="rectangle"]
+    
+
+    node[shape="note"]
+    
+      "vote"[label="vote", fillcolor=3]
+      "Video" -> "vote"
+    
+
+    node[shape="folder"]
+    
+
+
+
+
+
+
+
+    node[shape="ellipse",style="filled", fillcolor=11]
+    
+
+    
+      
+        "Vote"[label="Vote"]
+        "Vote" -> "vote"
+      
+    
+
+    
+
+
+    
+      
+        "ENV"[label="ENV"]
+        "ENV" -> "CurrentVideoCtrl"
+      
+        "$state"[label="$state"]
+        "$state" -> "CurrentVideoCtrl"
+      
+        "Video"[label="Video"]
+        "Video" -> "CurrentVideoCtrl"
+      
+        "$stateParams"[label="$stateParams"]
+        "$stateParams" -> "CurrentVideoCtrl"
+      
+        "Vote"[label="Vote"]
+        "Vote" -> "CurrentVideoCtrl"
+      
+    
+
+    
+
+    
+      
+        "ENV"[label="ENV"]
+        "ENV" -> "Video"
+      
+    
+      
+        "ENV"[label="ENV"]
+        "ENV" -> "Vote"
+      
+    
+
+    
+
+
+}
